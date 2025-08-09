@@ -27,12 +27,18 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - name: Install dependencies (root)
         run: npm ci
 
-      - name: Build
+      - name: Install Next app dependencies
+        run: cd apps/web-next && npm ci
+ 
+      - name: Build (root, if present)
         run: npm run build --if-present
-
+ 
+      - name: Build Next app
+        run: npx next build apps/web-next
+ 
       - name: Check @apply violations
         run: node scripts/check-apply.js
 
@@ -49,24 +55,27 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - name: Install dependencies (root)
         run: npm ci
-
+ 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
-      - name: Build
-        run: npm run build --if-present
-
-      - name: Start Preview Server
-        run: npx vite preview --port 3000 --strictPort &
-
+ 
+      - name: Install Next app dependencies
+        run: cd apps/web-next && npm ci
+ 
+      - name: Build Next app
+        run: npx next build apps/web-next
+ 
+      - name: Start Next Server
+        run: npx next start apps/web-next -p 3000 --hostname 127.0.0.1 &
+ 
       - name: Wait for Server
-        run: npx wait-on http://localhost:3000
-
+        run: npx wait-on http://127.0.0.1:3000
+ 
       - name: Run Smoke + A11y tests (Playwright)
-        run: npx playwright test
-
+        run: npx playwright test -c tests/playwright.next.config.ts
+ 
       - name: Lighthouse CI
         run: npx @lhci/cli autorun --config=./lighthouserc.json
 
