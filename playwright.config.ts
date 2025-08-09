@@ -7,13 +7,13 @@ export default defineConfig({
   fullyParallel: true,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:4173',
+    baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
     headless: true,
   },
   webServer: {
-    command: 'npm run preview -- --port 4173 --strictPort',
-    url: 'http://localhost:4173',
+    command: 'npx vite preview --port 3000 --strictPort',
+    url: 'http://localhost:3000',
     reuseExistingServer: true,
     timeout: 60_000,
   },

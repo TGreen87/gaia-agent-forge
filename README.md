@@ -88,6 +88,6 @@ This repo includes CI (build, Playwright smoke, Axe a11y, Lighthouse CI, and an 
 
 Notes:
 - Node version is pinned via .nvmrc (20).
-- Preview server uses `vite preview` on http://localhost:4173 in CI.
+- Preview server uses `vite preview` on http://localhost:3000 in CI.
 - Browserslist DB is updated in CI via `npx update-browserslist-db@latest` (non-blocking).
 
