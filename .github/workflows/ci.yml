@@ -78,7 +78,9 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const body = `Preview URL: (configure Vercel/Netlify in CI to post a real preview)\n\n` +
+            const runUrl = `${github.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const preview = process.env.PREVIEW_URL || '(configure Vercel/Netlify in CI to post a real preview)';
+            const body = `Preview URL: ${preview}\n\nCI run: ${runUrl}\n\n` +
               `If using Vercel, add secrets VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID.\n` +
               `If using Netlify, add secrets NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID.`;
             github.rest.issues.createComment({
