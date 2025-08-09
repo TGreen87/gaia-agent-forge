@@ -71,3 +71,23 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## CI & GitHub Actions Secrets
+
+This repo includes CI (build, Playwright smoke, Axe a11y, Lighthouse CI, and an @apply rule check). To enable full PR previews and comments, add these repository secrets:
+
+- Vercel (recommended for preview URLs):
+  - VERCEL_TOKEN
+  - VERCEL_ORG_ID
+  - VERCEL_PROJECT_ID
+- Netlify (alternative):
+  - NETLIFY_AUTH_TOKEN
+  - NETLIFY_SITE_ID
+- Lighthouse CI GitHub App (optional PR annotations):
+  - LHCI_GITHUB_APP_TOKEN
+
+Notes:
+- Node version is pinned via .nvmrc (20).
+- Preview server uses `vite preview` on http://localhost:4173 in CI.
+- Browserslist DB is updated in CI via `npx update-browserslist-db@latest` (non-blocking).
+
