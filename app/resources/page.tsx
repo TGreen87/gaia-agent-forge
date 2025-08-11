@@ -1,6 +1,5 @@
 "use client"
 import { logEvent } from '@/lib/analytics'
-export const metadata = { title: 'Resources' }
 export default function ResourcesPage() {
   return (
     <main className="mx-auto max-w-[1200px] px-4 py-16 md:px-6">
