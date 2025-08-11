@@ -1,5 +1,7 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { logEvent } from '@/lib/analytics'
 
 export default function HomePage() {
   return (
@@ -18,12 +20,12 @@ export default function HomePage() {
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row" role="group" aria-label="Primary actions">
                 <Button asChild size="lg" className="focus-ring shadow-med">
-                  <a href="/playbook.pdf" download onClick={() => window.dispatchEvent(new CustomEvent('gaia:playbook_downloaded'))}>
+                  <a href="/playbook.pdf" download onClick={() => logEvent('playbook_downloaded')}>
                     Download the AI Adoption Playbook
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="focus-ring">
-                  <a href="https://cal.com/" target="_blank" rel="noopener noreferrer" onClick={() => window.dispatchEvent(new CustomEvent('gaia:discovery_booked'))}>
+                  <a href="https://cal.com/" target="_blank" rel="noopener noreferrer" onClick={() => logEvent('discovery_booked')}>
                     Book a Discovery Session
                   </a>
                 </Button>
@@ -119,7 +121,7 @@ export default function HomePage() {
               The same task runs in two modes. Fast answers in seconds; Thinking reasons deeper for tougher requests. You’ll see timing and sources for both.
             </p>
             <div className="mt-4">
-              <Button asChild className="focus-ring" onClick={() => window.dispatchEvent(new CustomEvent('gaia:demo_run'))}>
+              <Button asChild className="focus-ring" onClick={() => logEvent('demo_run')}>
                 <Link href="/projects-and-demos#think-vs-fast">Try the demo</Link>
               </Button>
             </div>

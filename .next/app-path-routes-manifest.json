@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/contact/page": "/contact",
+  "/learning-hub/page": "/learning-hub",
+  "/projects/page": "/projects",
+  "/about/page": "/about",
+  "/(routes)/projects-and-demos/page": "/projects-and-demos",
+  "/services/page": "/services",
+  "/why-gaia/page": "/why-gaia",
+  "/resources/page": "/resources"
+}

@@ -1,3 +1,12 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/learning-hub/page": "app/learning-hub/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/about/page": "app/about/page.js",
+  "/(routes)/projects-and-demos/page": "app/(routes)/projects-and-demos/page.js",
+  "/services/page": "app/services/page.js",
+  "/why-gaia/page": "app/why-gaia/page.js",
+  "/resources/page": "app/resources/page.js"
 }

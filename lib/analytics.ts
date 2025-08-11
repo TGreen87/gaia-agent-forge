@@ -2,12 +2,18 @@
 
 export type GaiaEvent = 'playbook_downloaded' | 'discovery_booked' | 'demo_run'
 
-export function logEvent(event: GaiaEvent, props?: Record<string, string | number | boolean>) {
+type PlausibleFn = (event: string, options?: { props?: Record<string, string | number | boolean> }) => void
+
+declare global {
+  interface Window {
+    plausible?: PlausibleFn
+  }
+}
+
+export function logEvent(event: GaiaEvent, props?: Record<string, string | number | boolean>): void {
   try {
-    // @ts-ignore - plausible may not exist yet
-    if (typeof window !== 'undefined' && (window as any).plausible) {
-      // @ts-ignore
-      (window as any).plausible(event, { props })
+    if (typeof window !== 'undefined' && typeof window.plausible === 'function') {
+      window.plausible(event, props ? { props } : undefined)
     }
   } catch {
     // no-op

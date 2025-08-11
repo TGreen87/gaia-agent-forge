@@ -1,3 +1,5 @@
+"use client"
+import { logEvent } from '@/lib/analytics'
 export const metadata = { title: 'Resources' }
 export default function ResourcesPage() {
   return (
@@ -19,7 +21,7 @@ export default function ResourcesPage() {
           <span>Email</span>
           <input className="rounded-md border bg-background p-2 focus-ring" type="email" name="email" required aria-required="true" />
         </label>
-        <button className="rounded-md border bg-card px-4 py-2 focus-ring" type="submit" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('gaia:playbook_downloaded')); window.location.href = '/playbook.pdf'; }}>Download the Playbook</button>
+        <button className="rounded-md border bg-card px-4 py-2 focus-ring" type="submit" onClick={(e) => { e.preventDefault(); logEvent('playbook_downloaded'); window.location.href = '/playbook.pdf'; }}>Download the Playbook</button>
       </form>
     </main>
   )
