@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   basePath: '',
+  output: 'export',
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
@@ -13,6 +14,7 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
 }
 

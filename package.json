@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
-    "start": "next start -p 3000",
+    "build": "next build && next export -o out",
+    "start": "npx serve -l 3000 out",
     "lint": "eslint .",
     "test": "playwright test -c tests/playwright.next.config.ts"
   },
@@ -75,6 +75,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "localtunnel": "^2.0.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
