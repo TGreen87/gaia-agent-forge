@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app/page.tsx -> @/components/graphics/CursorGradient\":{\"id\":\"app/page.tsx -> @/components/graphics/CursorGradient\",\"files\":[\"static/chunks/_app-pages-browser_components_graphics_CursorGradient_tsx.js\"]}}"
