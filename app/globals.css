@@ -133,9 +133,25 @@
     outline-offset: 2px;
   }
 
+  /* Global link focus visibility */
+  a:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; border-radius: 4px; }
+
   /* Line length helpers */
   .measure { max-width: 72ch; }
   .measure-compact { max-width: 60ch; }
+
+  /* Minimum interactive target size (>= 24x24 CSS px) */
+  .tap-target { min-height: 1.5rem; min-width: 1.5rem; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *:not([data-allow-motion]) {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
