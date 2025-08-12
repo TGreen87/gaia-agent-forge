@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Golden Visual Spec tokens (dark-first). Use CSS variables; Tailwind maps read from hsl() tokens. */
+@layer base {
+  :root {
+    /* Core brand tokens (hex per spec) */
+    --bg: #0B0F14;           /* page background */
+    --panel: #0F141C;        /* cards/sections */
+    --fg: #E6E9ED;           /* primary text */
+    --muted-text: #9AA3AE;   /* secondary text */
+    --border-color: #1B232D; /* borders */
+
+    --primary-brand: #7EE1D2; /* teal */
+    --accent-brand: #AEB3FF;  /* indigo */
+
+    --success: #58D6A7;
+    --warn: #FFC857;
+    --danger: #FF6B6B;
+
+    /* Shadow tokens */
+    --shadow-soft: 0 1px 1px rgba(0,0,0,.24), 0 8px 24px rgba(0,0,0,.28);
+    --shadow-med: 0 2px 2px rgba(0,0,0,.26), 0 16px 40px rgba(0,0,0,.32);
+    --shadow-glow: 0 0 0 1px rgba(126,225,210,.24), 0 0 24px rgba(126,225,210,.18);
+
+    /* Map to Tailwind HSL tokens */
+    --background: 210 30% 6%; /* approximate of #0B0F14 */
+    --foreground: 210 22% 92%; /* #E6E9ED */
+
+    --card: 210 26% 8%;       /* panel */
+    --card-foreground: 210 22% 92%;
+
+    --popover: 210 26% 8%;
+    --popover-foreground: 210 22% 92%;
+
+    --brand: 170 70% 66%;     /* #7EE1D2 */
+    --brand-2: 234 100% 84%;  /* #AEB3FF */
+    --brand-foreground: 210 22% 10%;
+
+    --primary: var(--brand);
+    --primary-foreground: 210 22% 10%;
+
+    --secondary: 210 26% 12%;
+    --secondary-foreground: 210 22% 92%;
+
+    --muted: 210 26% 12%;
+    --muted-foreground: 213 17% 67%; /* #9AA3AE */
+
+    --accent: var(--brand-2);
+    --accent-foreground: 210 22% 10%;
+
+    --destructive: 0 100% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 209 24% 15%;    /* #1B232D */
+    --input: 209 24% 15%;
+    --ring: 234 100% 84%;     /* indigo */
+
+    --radius: 0.5rem;
+  }
+
+  .light {
+    /* Light-mode mapping auto-derives from dark-first tokens */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --brand: 170 70% 40%;
+    --brand-2: 234 100% 74%;
+    --brand-foreground: 0 0% 100%;
+
+    --primary: var(--brand);
+    --primary-foreground: var(--brand-foreground);
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 22% 22%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 213 12% 40%;
+
+    --accent: var(--brand-2);
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 91%;
+    --input: 214 20% 91%;
+    --ring: 234 100% 74%;
+  }
+
+  * { border-color: hsl(var(--border)); }
+  body { @apply bg-background text-foreground antialiased; }
+  .font-sans { font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+  .font-serif { font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+
+  /* Type scale */
+  h1 { font-size: 4rem; line-height: 4.5rem; letter-spacing: -0.02em; }
+  @media (min-width: 640px) { h1 { font-size: 4.5rem; line-height: 4.75rem; } }
+  h2 { font-size: 3rem; line-height: 3.5rem; letter-spacing: -0.01em; }
+  h3 { font-size: 2rem; line-height: 2.5rem; }
+  h4 { font-size: 1.5rem; line-height: 2rem; }
+  .lede { font-size: 1.25rem; line-height: 1.75rem; }
+}
+
+@layer utilities {
+  /* Tokenized shadows */
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-med { box-shadow: var(--shadow-med); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  /* Abstract textured background: subtle grid + radial noise */
+  .bg-abstract {
+    background-image:
+      radial-gradient(1200px 600px at 10% -10%, rgba(174,179,255,0.10), transparent 50%),
+      radial-gradient(800px 400px at 90% 10%, rgba(126,225,210,0.10), transparent 60%),
+      linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02)),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 24px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 24px);
+    background-color: hsl(var(--background));
+    background-blend-mode: screen, screen, normal, normal, normal;
+  }
+
+  /* Focus ring utility honoring prefers-reduced-motion */
+  .focus-ring:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--accent-brand) 70%, white 0%);
+    outline-offset: 2px;
+  }
+
+  /* Line length helpers */
+  .measure { max-width: 72ch; }
+  .measure-compact { max-width: 60ch; }
+}
+
+

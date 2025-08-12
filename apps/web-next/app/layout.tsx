@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {

@@ -1,0 +1,12 @@
+* [33mc46987f[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m feat: canonical Next.js app + Netlify deploy\n\n- Root Next app canonical; archive apps/web-next\n- Plausible, sitemap (force-static), manifest, OG image meta\n- Tailwind/shadcn config cleanup\n- Netlify config + (keep Pages workflow optional)\n- CI: test exported site\n- README overhaul\n- .gitignore for build artifacts\n- package.json: remove export -o flag
+* [33mb91563c[m chore(preview): export static site and serve from out for stable tunnel preview
+* [33mf8441c6[m fix(resources): remove metadata export from client page
+* [33maa1a8fa[m fix: make Home/Resources client where needed and use typed logEvent()
+* [33mdfb2fcd[m feat(site): implement Golden Spec v1 tokens, typography, and home layout; add pages and accessibility improvements; event stubs
+* [33mc5fdf64[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m M2: Migrate to Next.js 15.4
+* [33ma7b3ee7[m M1: Add CI skeleton
+* [33m8b04937[m feat: Add CI skeleton to Vite app
+* [33mf2ed76d[m feat: Implement M1 migration and CI
+* [33mac68350[m Critique and Plan Site
+* [33mb5087ee[m Add GAIA Site-Forge structure
+* [33mff85533[m Use tech stack vite_react_shadcn_ts_20250728_minor

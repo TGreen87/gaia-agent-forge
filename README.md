@@ -1,76 +1,74 @@
-# Welcome to your Lovable project
+## GAIA Agent Forge — Next.js site
 
-## Project info
+Production-ready marketing site for Green AI & Automation (GAIA), built with Next.js 15 (App Router), React 19, TypeScript, Tailwind, and shadcn UI.
 
-**URL**: https://lovable.dev/projects/867a7000-4c40-40f4-a893-68c50f735905
+### Tech
+- **Framework**: Next.js 15 (App Router), React 19, TypeScript
+- **UI**: Tailwind CSS, shadcn UI, Radix
+- **Analytics**: Plausible (client event helpers wired)
+- **Testing/QA**: Playwright smoke + a11y, Lighthouse CI
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/867a7000-4c40-40f4-a893-68c50f735905) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+### Quick start
+```bash
+nvm use 20 # or use your Node 20 runtime
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm run dev   # http://localhost:3000
 ```
 
-**Edit a file directly in GitHub**
+### Build and preview
+```bash
+npm run build     # next build && next export -o out
+npm start         # serves ./out on port 3000
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Test and lint
+```bash
+npm test          # Playwright smoke + a11y
+npm run lint      # ESLint
+```
 
-**Use GitHub Codespaces**
+### Project structure
+- `app/` — App Router pages (`/`, `/services`, `/why-gaia`, `/projects`, `/learning-hub`, `/about`, `/contact`)
+- `components/` — UI primitives (Button, Card), layout (Header, Footer)
+- `lib/` — utilities (`cn`, Plausible event helper)
+- `tests/` — Playwright tests and config
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Notes:
+- Root Next.js app is the canonical app. `apps/web-next/` is legacy/sandbox and not part of build/deploy.
 
-## What technologies are used for this project?
+### Deployment — Netlify (recommended)
+This site uses static export and works great on Netlify.
 
-This project is built with:
+Netlify config: see `netlify.toml`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Pipeline:
+- Connect the GitHub repo in Netlify.
+- Build command: `npm run build`
+- Publish directory: `out`
+- Branch: `main`
 
-## How can I deploy this project?
+Custom domain `greenaiautomation.ai`:
+- In Netlify, add the domain and verify.
+- Either delegate DNS to Netlify (simplest) or add DNS records at your registrar:
+  - `CNAME` for `www` → your-site-name.netlify.app
+  - `ALIAS`/`ANAME` (or A records provided by Netlify) for apex `@`
+- Enable HTTPS (Netlify auto-provisions certificates).
 
-Simply open [Lovable](https://lovable.dev/projects/867a7000-4c40-40f4-a893-68c50f735905) and click on Share -> Publish.
+### Deployment — GitHub Pages (optional)
+The repo also includes a Pages workflow (`.github/workflows/pages.yml`) that deploys `out/` from `main`.
+If you use Netlify, you can ignore or remove it.
 
-## Can I connect a custom domain to my Lovable project?
+### Environment and analytics
+- Plausible script is loaded site-wide. To customize domain or add props, edit `app/layout.tsx` and `lib/analytics.ts`.
 
-Yes, you can!
+### Accessibility & SEO
+- A11y tested in light and dark themes via axe.
+- `app/sitemap.ts` and JSON-LD are included; consider adding a dedicated OG image.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Maintenance notes
+- Keep `tailwind.config.ts` content globs aligned with `app/` and `components/`.
+- When generating new shadcn components, ensure `components.json` points to `app/globals.css`.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
 ## CI & GitHub Actions Secrets
 
