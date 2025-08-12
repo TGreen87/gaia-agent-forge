@@ -41,6 +41,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-domain="greenaiautomation.ai"
           src="https://plausible.io/js/script.js"
         />
+        {/* Schema.org JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  name: 'Green AI & Automation (GAIA)',
+                  url: 'https://greenaiautomation.ai',
+                  sameAs: ['https://cal.com/'],
+                },
+                {
+                  '@type': 'ProfessionalService',
+                  name: 'GAIA — Agentic Systems & Automation',
+                  url: 'https://greenaiautomation.ai',
+                  areaServed: 'Global',
+                  serviceType: ['Agentic Systems', 'Automation', 'AI Consulting', 'Executive Training'],
+                },
+                {
+                  '@type': 'BreadcrumbList',
+                  itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://greenaiautomation.ai/' },
+                    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://greenaiautomation.ai/services' },
+                    { '@type': 'ListItem', position: 3, name: 'Why GAIA', item: 'https://greenaiautomation.ai/why-gaia' },
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main>{children}</main>

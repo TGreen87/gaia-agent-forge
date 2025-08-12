@@ -19,9 +19,9 @@ export default function HomePage() {
                 Agentic systems, automations, and executive-grade guidance—explained clearly and delivered fast.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row" role="group" aria-label="Primary actions">
-                <Button asChild size="lg" className="focus-ring shadow-med">
-                  <a href="/playbook.pdf" download onClick={() => logEvent('playbook_downloaded')}>
-                    Download the AI Adoption Playbook
+               <Button asChild size="lg" className="focus-ring shadow-med">
+                  <a href="/resources" aria-label="Get the AI Adoption Playbook">
+                    Get the AI Adoption Playbook
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="focus-ring">
@@ -121,8 +121,8 @@ export default function HomePage() {
               The same task runs in two modes. Fast answers in seconds; Thinking reasons deeper for tougher requests. You’ll see timing and sources for both.
             </p>
             <div className="mt-4">
-              <Button asChild className="focus-ring" onClick={() => logEvent('demo_run')}>
-                <Link href="/projects-and-demos#think-vs-fast">Try the demo</Link>
+              <Button asChild className="focus-ring" onClick={() => logEvent('demo_run', { source: 'home-proof-card' })}>
+                <Link href="/demos">Try the demo</Link>
               </Button>
             </div>
           </article>
