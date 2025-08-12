@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build && next export -o out",
+    "build": "next build && next export",
     "start": "npx serve -l 3000 out",
     "lint": "eslint .",
-    "test": "playwright test -c tests/playwright.next.config.ts"
+    "test": "npm run build && playwright test -c tests/playwright.next.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

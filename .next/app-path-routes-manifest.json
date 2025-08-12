@@ -1,12 +1,13 @@
 {
   "/_not-found/page": "/_not-found",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/page": "/",
-  "/contact/page": "/contact",
+  "/resources/page": "/resources",
   "/learning-hub/page": "/learning-hub",
-  "/projects/page": "/projects",
-  "/about/page": "/about",
   "/(routes)/projects-and-demos/page": "/projects-and-demos",
+  "/projects/page": "/projects",
   "/services/page": "/services",
+  "/about/page": "/about",
   "/why-gaia/page": "/why-gaia",
-  "/resources/page": "/resources"
+  "/contact/page": "/contact"
 }

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description: 'Agentic systems, automation, and coaching—delivered with clarity.',
     type: 'website',
     url: 'https://greenaiautomation.ai/',
+    images: ['/gaia-hero.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
@@ -33,6 +34,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh bg-background font-sans antialiased">
+        <link rel="manifest" href="/manifest.webmanifest" />
+        {/* Plausible Analytics */}
+        <script
+          defer
+          data-domain="greenaiautomation.ai"
+          src="https://plausible.io/js/script.js"
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main>{children}</main>

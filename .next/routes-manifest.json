@@ -75,6 +75,12 @@
       "namedRegex": "^/services(?:/)?$"
     },
     {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
       "page": "/why-gaia",
       "regex": "^/why\\-gaia(?:/)?$",
       "routeKeys": {},

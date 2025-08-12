@@ -1,0 +1,13 @@
+{
+  "name": "Green AI & Automation (GAIA)",
+  "short_name": "GAIA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "32x32 48x48 64x64", "type": "image/x-icon" }
+  ]
+}
+
+

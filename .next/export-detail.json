@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "outDirectory": "/mnt/a/Dev/gaia-agent-forge/.next/export",
-  "success": false
+  "outDirectory": "/mnt/a/Dev/gaia-agent-forge/out",
+  "success": true
 }
