@@ -36,18 +36,27 @@ npm run lint      # ESLint
 Notes:
 - Root Next.js app is the canonical app. `apps/web-next/` is legacy/sandbox and not part of build/deploy.
 
-### Deployment — GitHub Pages + custom domain
-This site is exported to static HTML and deployed to GitHub Pages.
+### Deployment — Netlify (recommended)
+This site uses static export and works great on Netlify.
+
+Netlify config: see `netlify.toml`.
 
 Pipeline:
-- On push to `main`, GitHub Actions builds and exports to `out/`, then deploys to Pages.
-- `public/CNAME` is included to set the custom domain.
+- Connect the GitHub repo in Netlify.
+- Build command: `npm run build`
+- Publish directory: `out`
+- Branch: `main`
 
-Domain setup for `greenaiautomation.ai`:
-- Point DNS to GitHub Pages.
-  - If using apex: set A records to GitHub Pages IPs or use ALIAS/ANAME to `USERNAME.github.io`.
-  - If using Cloudflare: set CNAME for root via flattening to `USERNAME.github.io`.
-- In the repo Settings → Pages, set the custom domain `greenaiautomation.ai` and enforce HTTPS.
+Custom domain `greenaiautomation.ai`:
+- In Netlify, add the domain and verify.
+- Either delegate DNS to Netlify (simplest) or add DNS records at your registrar:
+  - `CNAME` for `www` → your-site-name.netlify.app
+  - `ALIAS`/`ANAME` (or A records provided by Netlify) for apex `@`
+- Enable HTTPS (Netlify auto-provisions certificates).
+
+### Deployment — GitHub Pages (optional)
+The repo also includes a Pages workflow (`.github/workflows/pages.yml`) that deploys `out/` from `main`.
+If you use Netlify, you can ignore or remove it.
 
 ### Environment and analytics
 - Plausible script is loaded site-wide. To customize domain or add props, edit `app/layout.tsx` and `lib/analytics.ts`.

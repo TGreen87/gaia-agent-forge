@@ -58,10 +58,9 @@ jobs:
       - name: Build Next app (root)
         run: npm run build
  
-      - name: Start static server (exported site)
+      - name: Start Next Server
         run: |
-          npm run build
-          npx serve -l 3000 out &
+          npx next start -p 3000 --hostname 127.0.0.1 &
           npx wait-on http://127.0.0.1:3000
  
       - name: Run Smoke + A11y + Visual tests (Playwright)

@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build && next export",
-    "start": "npx serve -l 3000 out",
+    "build": "next build",
+    "start": "next start -p 3000",
     "lint": "eslint .",
     "test": "npm run build && playwright test -c tests/playwright.next.config.ts"
   },

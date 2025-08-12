@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 [[headers]]
   for = "/*"
@@ -10,10 +10,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-# Example redirect to force https (Netlify already does this when HTTPS enforced)
-#[[redirects]]
-#  from = "http://greenaiautomation.ai/*"
-#  to = "https://greenaiautomation.ai/:splat"
-#  status = 301
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/next_api"
+  status = 200
+  force = true
+
 
 
