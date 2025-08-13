@@ -1,4 +1,5 @@
 import servicesData from '@/data/services.json'
+import type { PageProps } from 'next'
 
 type ServiceItem = {
   slug: string
@@ -23,9 +24,10 @@ export function generateStaticParams() {
   return all.map((s) => ({ slug: s.slug }))
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
+export default async function ServicePage({ params }: PageProps<{ slug: string }>) {
+  const { slug } = await params
   const all = (servicesData as Services).groups.flatMap((g) => g.items)
-  const svc = all.find((s) => s.slug === params.slug)
+  const svc = all.find((s) => s.slug === slug)
 
   if (!svc) {
     return (
