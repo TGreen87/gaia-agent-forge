@@ -1,6 +1,6 @@
 [build]
-  command = "npm ci && npm run build && npx next export"
-  publish = "out"
+  command = "npm run build"
+  publish = ".next"
 
 [[headers]]
   for = "/*"
@@ -10,9 +10,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-## Static export does not need the Next.js plugin
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
-## No API routes in static export
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/next_api"
+  status = 200
+  force = true
 
 
 
