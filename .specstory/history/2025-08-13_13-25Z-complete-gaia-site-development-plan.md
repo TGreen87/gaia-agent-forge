@@ -2136,6 +2136,122 @@ Line 132: Finished processing build request in 29.349s
 
 _**Assistant**_
 
+<think><details><summary>Thought Process</summary>**Troubleshooting build errors**
+
+I'm addressing some build errors, starting with one that says, "Module 'next' has no exported member 'PageProps'." This might be due to changes in Next's typing in version 15.4, where PageProps isn't a named export anymore. Historically, in Next.js 14, PageProps was defined within 'next'. However, I need to confirm how it's defined now and consider alternatives, like typing the function parameters directly instead of using PageProps.
+**Clarifying parameters for ServicePage**
+
+I'm considering whether there might be a default export, but it seems there isn't one. I suspect the Netlify logs might be misleading. To avoid using PageProps, I can type it like this: `export default function ServicePage({ params }: { params: Promise<{ slug: string }>})`. This aligns with Next.js 15, which allows async route parameters as Promises. I noticed the earlier error mentioned that properties were expected as Promise<any>, so I’ll match their new type and destructure it correctly, avoiding the need to import PageProps.
+**Modifying ServicePage definition**
+
+I need to change the function definition to `export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; ...}`. I should also update the signature for `generateStaticParams`. The fast refresh warnings can be ignored, but it's best to make sure our files only export components and metadata. These warnings might be linked to not using 'use client', but they're not fatal, whereas a type error is. I’ll remove the import of PageProps and adjust the parameter type to Promise. I’ll also check for any casts to remove and then commit and push.
+**Implementing changes and checking for warnings**
+
+I’m planning to apply changes via `apply_patch` and push it. I'll also check `app/services/page.tsx` for any warnings related to non-component exports. This file only exports a metadata constant and a default function, which is generally allowed. The fast refresh warnings might arise because it exports more than just a component. The Next plugin has a rule that flags any additional exports, suggesting that we should mainly export components. Since these are just warnings and not failing issues, I’ll focus on addressing the type errors, which cause the build to fail.</details></think>
+
+---
+
+
+
+---
+
+
+
+---
+
+```bash
+git add -A && git commit -m "fix(types): remove PageProps import; use awaited params to satisfy Next 15 PageProps constraint" && git push origin main
+```
+
+```
+< to satisfy Next 15 PageProps constraint" && git push origin main
+warning: CRLF will be replaced by LF in .specstory/history/2025-08-13_13-25Z-complete-gaia-site-devel
+opment-plan.md.
+The file will have its original line endings in your working directory
+[main 20607c7] fix(types): remove PageProps import; use awaited params to satisfy Next 15 PageProps c
+onstraint
+ 2 files changed, 163 insertions(+), 2 deletions(-)
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 3.51 KiB | 256.00 KiB/s, done.
+Total 9 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To https://github.com/TGreen87/gaia-agent-forge.git
+   470b55a..20607c7  main -> main
+tgree@Tom-Desktop:~/dev-drive/Dev/gaia-agent-forge$
+```
+
+---
+
+Made a comprehensive fix for the Next 15 type constraint and cleaned up.
+
+- app/services/[slug]/page.tsx:
+  - Removed PageProps import. Next 15 doesn’t export it.
+  - Use awaited params to match the new constraint: export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) with const { slug } = await params.
+  - Strong types for services data preserved.
+
+- Verified:
+  - No ESLint errors in services pages and related files.
+  - Next ESLint plugin is active.
+  - Fast Refresh warnings remain informational; pages export components only plus allowed static exports.
+
+Pushed to main: 20607c7
+
+---
+
+_**User**_
+
+SYSTEM - Non negotiables
+- No em dashes in any visible copy.
+- Short sentences. Calm tone. No clickbait.
+- WCAG 2.2 AA target sizes and focus styles.
+- Next.js 15.4. App Router. Static export to Netlify unless a function is required.
+
+Goal
+Upgrade GAIA into a lead generating platform. Ship a Proof page, a Pilot Plan wizard, a Search with citations demo, Web Vitals to Plausible, and wire events.
+
+Plan
+1) Data and docs
+- Add data/demos.json and data/cases.json.
+- Add docs/offer-ladder.md, docs/conversion-architecture.md, docs/kpis.md.
+
+2) Pages
+- Create app/proof/page.tsx from the provided template. It renders short cases from data/cases.json.
+- Create app/wizard/pilot-plan/page.tsx from the provided template. It generates a two week plan client side and calls track('demo_run', { variant: 'pilot_plan' }).
+- Create app/demos/search-with-citations/page.tsx from the provided template. Placeholder UI and event.
+
+3) Analytics
+- Add lib/vitals.ts and app/_components/TrackVitals.tsx.
+- Render <TrackVitals /> in the root layout so Web Vitals send to Plausible with event names webvitals_cls, webvitals_inp, webvitals_lcp.
+
+4) Navigation
+- Ensure Projects and Demos links point to /demos/think-vs-fast and /demos/search-with-citations.
+- Add Proof and Pilot Plan to the nav or link them from Projects and Demos.
+
+5) Events
+- Confirm track('playbook_downloaded'), track('demo_run'), and track('discovery_booked').
+- Add simple view_* events at the top of pages if you have a page level effect.
+
+6) Copy polish
+- Replace any remaining em dashes with periods. Follow the copy deck tone.
+
+Acceptance
+- /proof, /wizard/pilot-plan, and /demos/search-with-citations render and work as placeholders offline.
+- TrackVitals renders globally with no console errors.
+- Projects and Demos links work.
+- Lighthouse a11y 90 or higher on localhost.
+- No em dashes remain.
+
+Commit message
+feat: phase 2 — proof, wizard, demo, vitals, docs
+
+
+---
+
+_**Assistant**_
+
 
 
 ---

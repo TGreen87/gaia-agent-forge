@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "slug": "think-vs-fast",
+      "title": "Think vs Fast",
+      "desc": "Run a task in two modes. See timing and sources.",
+      "status": "Live"
+    },
+    {
+      "slug": "search-with-citations",
+      "title": "Search with citations",
+      "desc": "Ask a question and get a short answer with sources.",
+      "status": "Preview"
+    },
+    {
+      "slug": "proposal-draft-with-rules",
+      "title": "Proposal draft with rules",
+      "desc": "Provide a brief. See a draft and a check list.",
+      "status": "Preview"
+    },
+    {
+      "slug": "inbox-triage",
+      "title": "Inbox triage",
+      "desc": "Route mail based on rules. See the log.",
+      "status": "Preview"
+    }
+  ]
+}
