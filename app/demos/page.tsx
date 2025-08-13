@@ -25,7 +25,7 @@ export default function DemosPage() {
     setFast(null)
     setThinking(null)
     try {
-      logEvent('demo_run', { source: 'demos-page' } as any)
+      logEvent('demo_run', { source: 'demos-page' })
       const res = await fetch('/api/demos/compare', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,8 +35,8 @@ export default function DemosPage() {
       const data = await res.json() as { fast: Result; thinking: Result }
       setFast(data.fast)
       setThinking(data.thinking)
-    } catch (e: any) {
-      setError(e?.message || 'Something went wrong')
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
       setBusy(false)
     }

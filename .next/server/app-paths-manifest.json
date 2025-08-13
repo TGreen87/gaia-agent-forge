@@ -1,14 +1,17 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/contact/route": "app/api/contact/route.js",
+  "/api/demos/compare/route": "app/api/demos/compare/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/resources/page": "app/resources/page.js",
+  "/demos/page": "app/demos/page.js",
   "/page": "app/page.js",
+  "/resources/page": "app/resources/page.js",
   "/about/page": "app/about/page.js",
   "/(routes)/projects-and-demos/page": "app/(routes)/projects-and-demos/page.js",
-  "/projects/page": "app/projects/page.js",
-  "/learning-hub/page": "app/learning-hub/page.js",
   "/contact/page": "app/contact/page.js",
+  "/learning-hub/page": "app/learning-hub/page.js",
+  "/projects/page": "app/projects/page.js",
   "/services/page": "app/services/page.js",
-  "/why-gaia/page": "app/why-gaia/page.js"
+  "/why-gaia/page": "app/why-gaia/page.js",
+  "/privacy/page": "app/privacy/page.js"
 }
