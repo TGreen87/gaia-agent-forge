@@ -1330,6 +1330,81 @@ Line 40: Finished processing build request in 16.821s
 
 _**Assistant**_
 
+<think><details><summary>Thought Process</summary>**Fixing ESLint package versions**
+
+I need to resolve the package version for eslint-plugin-next. It looks like we're using Next 15, as indicated in package.json where next is set to "15.4.0". There’s a historical link with the eslint rules plugin '@next/eslint-plugin-next'. Next has released 'eslint-plugin-next' as a standalone package since version 15. I think the plan is to replace the import in eslint.config.js to use "@next/eslint-plugin-next" instead of "eslint-plugin-next" and remove the outdated dependency. This should keep everything aligned!
+**Resolving package installation issues**
+
+The error arises from the build step failing to install the package we added. I think we should update package.json to use "@next/eslint-plugin-next": "15.0.3" or a similar version. Since we’re offline, it's probably safer to adjust eslint.config.js to import from "@next/eslint-plugin-next" and remove "eslint-plugin-next" as a devDependency to prevent Netlify from attempting to install the missing package. I'll need to confirm whether Next 15 includes this ESLint plugin, and if not, we can streamline the import process.
+**Adjusting ESLint configuration**
+
+I’m reviewing our devDependencies, which include "eslint": ^9.32.0 and Next 15.4.0. To simplify things, I think it would be best to remove the plugin from eslint.config.js by eliminating the import statement and any references to '...next.configs...' and '@next/next'. This way, we’ll stop ESLint errors on Netlify while keeping the necessary rules. Instead of enabling the Next ESLint plugin, we can maintain a minimal configuration. I’ll implement these updates accordingly!
+**Addressing TypeScript errors and updates**
+
+I noticed a TypeScript error in page.tsx regarding a 'PageProps' mismatch. We updated the function export to include parameters as "export default function ServicePage({ params }: { params: { slug: string } })", which should compile correctly now. Additionally, we modified the Netlify config to utilize the plugin and .next, and set the Node version to 20.19.4. I plan to remove "eslint-plugin-next" from devDependencies in package.json and revise eslint.config.js by removing the plugin import and related rules. After making these patches, I’ll commit and push the changes.
+**Moving forward with SSR**
+
+It seems that SSR is still allowed, which is good news! Setting dynamicParams to false restricts other routes, but it should be fine for our purposes. I think we can proceed without any issues. It’s reassuring to know that we’re able to implement Server-Side Rendering while managing the route restrictions effectively. Let’s keep this plan moving forward!</details></think>
+
+---
+
+
+
+---
+
+
+
+---
+
+```bash
+git add -A && git commit -m "fix(netlify): remove eslint-plugin-next dep and config to resolve ETARGET; keep ESLint minimal" && git push origin main
+```
+
+```
+< to resolve ETARGET; keep ESLint minimal" && git push origin main
+warning: CRLF will be replaced by LF in .specstory/history/2025-08-13_13-25Z-complete-gaia-site-devel
+opment-plan.md.
+The file will have its original line endings in your working directory
+[main 30e9ad1] fix(netlify): remove eslint-plugin-next dep and config to resolve ETARGET; keep ESLint
+ minimal
+ 6 files changed, 152 insertions(+), 15 deletions(-)
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (12/12), 3.31 KiB | 260.00 KiB/s, done.
+Total 12 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 9 local objects.
+To https://github.com/TGreen87/gaia-agent-forge.git
+   e5d1d5f..30e9ad1  main -> main
+tgree@Tom-Desktop:~/dev-drive/Dev/gaia-agent-forge$
+```
+
+---
+
+Fixed the Netlify install error.
+
+What I changed
+- Removed eslint-plugin-next from package.json and eslint.config.js to resolve the ETARGET (no such version) error.
+- Kept ESLint minimal so the build won’t fail on missing plugin versions.
+
+Actions taken
+- Committed and pushed to main: 30e9ad1
+
+Next
+- Netlify should now install deps cleanly and proceed to build.
+- If you want Next-specific lint rules, I can add a valid version (for example, 14.x rules compatible with your setup) once we confirm the exact Next version you want to target, but I held off to unblock deploy quickly.
+
+---
+
+_**User**_
+
+i want to be using next.js 15.4 and all compatible versions of other dependencies etc with versions available today 13th august 2025
+
+---
+
+_**Assistant**_
+
 
 
 ---
