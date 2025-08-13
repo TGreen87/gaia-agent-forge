@@ -1,8 +1,7 @@
+"use client"
 import casesData from '@/data/cases.json'
 import { logEvent } from '@/lib/analytics'
 import { useEffect } from 'react'
-
-export const metadata = { title: 'Proof' }
 
 type Case = {
   id: string

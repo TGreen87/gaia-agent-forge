@@ -1,17 +1,23 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/contact/route": "app/api/contact/route.js",
   "/api/demos/compare/route": "app/api/demos/compare/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/demos/page": "app/demos/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(demos)/demos/think-vs-fast/page": "app/(demos)/demos/think-vs-fast/page.js",
+  "/demos/search-with-citations/page": "app/demos/search-with-citations/page.js",
   "/page": "app/page.js",
+  "/demos/page": "app/demos/page.js",
+  "/proof/page": "app/proof/page.js",
+  "/wizard/pilot-plan/page": "app/wizard/pilot-plan/page.js",
   "/resources/page": "app/resources/page.js",
-  "/about/page": "app/about/page.js",
-  "/(routes)/projects-and-demos/page": "app/(routes)/projects-and-demos/page.js",
   "/contact/page": "app/contact/page.js",
+  "/accessibility/page": "app/accessibility/page.js",
   "/learning-hub/page": "app/learning-hub/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/projects/page": "app/projects/page.js",
+  "/about/page": "app/about/page.js",
   "/services/page": "app/services/page.js",
   "/why-gaia/page": "app/why-gaia/page.js",
-  "/privacy/page": "app/privacy/page.js"
+  "/services/[slug]/page": "app/services/[slug]/page.js",
+  "/(routes)/projects-and-demos/page": "app/(routes)/projects-and-demos/page.js"
 }

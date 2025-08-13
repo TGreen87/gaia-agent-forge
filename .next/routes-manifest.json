@@ -18,7 +18,16 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/services/[slug]",
+      "regex": "^/services/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/services/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -39,6 +48,12 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/accessibility",
+      "regex": "^/accessibility(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/accessibility(?:/)?$"
+    },
+    {
       "page": "/contact",
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
@@ -49,6 +64,18 @@
       "regex": "^/demos(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/demos(?:/)?$"
+    },
+    {
+      "page": "/demos/search-with-citations",
+      "regex": "^/demos/search\\-with\\-citations(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/demos/search\\-with\\-citations(?:/)?$"
+    },
+    {
+      "page": "/demos/think-vs-fast",
+      "regex": "^/demos/think\\-vs\\-fast(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/demos/think\\-vs\\-fast(?:/)?$"
     },
     {
       "page": "/learning-hub",
@@ -75,6 +102,12 @@
       "namedRegex": "^/projects\\-and\\-demos(?:/)?$"
     },
     {
+      "page": "/proof",
+      "regex": "^/proof(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof(?:/)?$"
+    },
+    {
       "page": "/resources",
       "regex": "^/resources(?:/)?$",
       "routeKeys": {},
@@ -97,6 +130,12 @@
       "regex": "^/why\\-gaia(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/why\\-gaia(?:/)?$"
+    },
+    {
+      "page": "/wizard/pilot-plan",
+      "regex": "^/wizard/pilot\\-plan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wizard/pilot\\-plan(?:/)?$"
     }
   ],
   "dataRoutes": [],
