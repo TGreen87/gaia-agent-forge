@@ -45,10 +45,22 @@
       "namedRegex": "^/contact(?:/)?$"
     },
     {
+      "page": "/demos",
+      "regex": "^/demos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/demos(?:/)?$"
+    },
+    {
       "page": "/learning-hub",
       "regex": "^/learning\\-hub(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/learning\\-hub(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
     },
     {
       "page": "/projects",
