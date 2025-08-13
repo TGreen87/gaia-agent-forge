@@ -45,7 +45,7 @@ export default function DemosPage() {
   return (
     <main className="mx-auto max-w-[1200px] px-4 py-16 md:px-6">
       <header className="mb-8">
-        <h1 className="text-4xl font-semibold tracking-tight">Think vs Fast — the GPT-5 demo</h1>
+        <h1 className="text-4xl font-semibold tracking-tight">Think vs Fast - the GPT-5 demo</h1>
         <p className="lede text-muted-foreground">Run both modes side by side. Timing badges update live. Citations & confidence shown when available.</p>
       </header>
 
@@ -64,18 +64,18 @@ export default function DemosPage() {
         <article className="rounded-md border bg-card p-4">
           <header className="mb-3 flex items-center justify-between">
             <h2 className="font-semibold">Fast (gpt-5)</h2>
-            <span className="rounded bg-muted px-2 py-1 text-xs">{fast ? `${(fast.durationMs/1000).toFixed(1)}s` : '—'}</span>
+            <span className="rounded bg-muted px-2 py-1 text-xs">{fast ? `${(fast.durationMs/1000).toFixed(1)}s` : '-'}</span>
           </header>
-          <pre className="whitespace-pre-wrap text-sm text-muted-foreground">{fast?.error ? `Error: ${fast.error}` : (fast?.answer || '—')}</pre>
-          <footer className="mt-3 text-xs text-muted-foreground">Citations & confidence: {fast?.citations?.join(', ') || '—'} {fast ? `· ${fast.confidence}` : ''}</footer>
+          <pre className="whitespace-pre-wrap text-sm text-muted-foreground">{fast?.error ? `Error: ${fast.error}` : (fast?.answer || '-')}</pre>
+          <footer className="mt-3 text-xs text-muted-foreground">Citations & confidence: {fast?.citations?.join(', ') || '-'} {fast ? `· ${fast.confidence}` : ''}</footer>
         </article>
         <article className="rounded-md border bg-card p-4">
           <header className="mb-3 flex items-center justify-between">
             <h2 className="font-semibold">Thinking (gpt-5-thinking)</h2>
-            <span className="rounded bg-muted px-2 py-1 text-xs">{thinking ? `${(thinking.durationMs/1000).toFixed(1)}s` : '—'}</span>
+            <span className="rounded bg-muted px-2 py-1 text-xs">{thinking ? `${(thinking.durationMs/1000).toFixed(1)}s` : '-'}</span>
           </header>
-          <pre className="whitespace-pre-wrap text-sm text-muted-foreground">{thinking?.error ? `Error: ${thinking.error}` : (thinking?.answer || '—')}</pre>
-          <footer className="mt-3 text-xs text-muted-foreground">Citations & confidence: {thinking?.citations?.join(', ') || '—'} {thinking ? `· ${thinking.confidence}` : ''}</footer>
+          <pre className="whitespace-pre-wrap text-sm text-muted-foreground">{thinking?.error ? `Error: ${thinking.error}` : (thinking?.answer || '-')}</pre>
+          <footer className="mt-3 text-xs text-muted-foreground">Citations & confidence: {thinking?.citations?.join(', ') || '-'} {thinking ? `· ${thinking.confidence}` : ''}</footer>
         </article>
       </section>
     </main>

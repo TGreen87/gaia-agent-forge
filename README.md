@@ -1,4 +1,4 @@
-## GAIA Agent Forge — Next.js site
+## GAIA Agent Forge - Next.js site
 
 Production-ready marketing site for Green AI & Automation (GAIA), built with Next.js 15 (App Router), React 19, TypeScript, Tailwind, and shadcn UI.
 
@@ -28,15 +28,15 @@ npm run lint      # ESLint
 ```
 
 ### Project structure
-- `app/` — App Router pages (`/`, `/services`, `/why-gaia`, `/projects`, `/learning-hub`, `/about`, `/contact`)
-- `components/` — UI primitives (Button, Card), layout (Header, Footer)
-- `lib/` — utilities (`cn`, Plausible event helper)
-- `tests/` — Playwright tests and config
+- `app/` - App Router pages (`/`, `/services`, `/why-gaia`, `/projects`, `/learning-hub`, `/about`, `/contact`)
+- `components/` - UI primitives (Button, Card), layout (Header, Footer)
+- `lib/` - utilities (`cn`, Plausible event helper)
+- `tests/` - Playwright tests and config
 
 Notes:
 - Root Next.js app is the canonical app. `apps/web-next/` is legacy/sandbox and not part of build/deploy.
 
-### Deployment — Netlify (recommended)
+### Deployment - Netlify (recommended)
 This site uses static export and works great on Netlify.
 
 Netlify config: see `netlify.toml`.
@@ -54,7 +54,7 @@ Custom domain `greenaiautomation.ai`:
   - `ALIAS`/`ANAME` (or A records provided by Netlify) for apex `@`
 - Enable HTTPS (Netlify auto-provisions certificates).
 
-### Deployment — GitHub Pages (optional)
+### Deployment - GitHub Pages (optional)
 The repo also includes a Pages workflow (`.github/workflows/pages.yml`) that deploys `out/` from `main`.
 If you use Netlify, you can ignore or remove it.
 

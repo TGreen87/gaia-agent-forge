@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Green AI & Automation (GAIA)",
+  "url": "https://greenaiautomation.ai",
+  "email": "tom@greenaiautomation.ai",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Melbourne",
+    "addressCountry": "AU"
+  },
+  "sameAs": [
+    "https://cal.com/"
+  ]
+}
+
+

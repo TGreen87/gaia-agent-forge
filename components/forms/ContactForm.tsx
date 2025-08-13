@@ -25,7 +25,7 @@ export default function ContactForm() {
           body: JSON.stringify(body),
         })
         if (res.ok) {
-          alert('Thanks — we’ll reply within two business days.')
+          alert('Thanks. We will reply within two business days.')
           form.reset()
         } else {
           alert('Sorry, something went wrong. Please try again later.')

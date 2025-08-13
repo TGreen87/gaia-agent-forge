@@ -1,24 +1,28 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
+import JsonLd from '@/components/seo/JsonLd'
+import orgLd from '@/data/jsonld-organization.json'
+import profLd from '@/data/jsonld-professional-service.json'
+import crumbsLd from '@/data/jsonld-breadcrumbs.json'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Inter, Newsreader } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Green AI & Automation (GAIA) — Agentic Systems',
-    template: '%s — GAIA',
+    default: 'Green AI & Automation (GAIA) - Agentic Systems',
+    template: '%s - GAIA',
   },
   description: 'Empower your business with trustworthy agentic AI systems, automation, and executive coaching.',
   metadataBase: new URL('https://greenaiautomation.ai'),
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Green AI & Automation (GAIA)',
-    description: 'Agentic systems, automation, and coaching—delivered with clarity.',
+    description: 'Agentic systems, automation, and coaching delivered with clarity.',
     type: 'website',
     url: 'https://greenaiautomation.ai/',
-    images: ['/gaia-hero.jpg'],
+    images: ['/og-image.png', '/gaia-hero.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
@@ -41,38 +45,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-domain="greenaiautomation.ai"
           src="https://plausible.io/js/script.js"
         />
-        {/* Schema.org JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@graph': [
-                {
-                  '@type': 'Organization',
-                  name: 'Green AI & Automation (GAIA)',
-                  url: 'https://greenaiautomation.ai',
-                  sameAs: ['https://cal.com/'],
-                },
-                {
-                  '@type': 'ProfessionalService',
-                  name: 'GAIA — Agentic Systems & Automation',
-                  url: 'https://greenaiautomation.ai',
-                  areaServed: 'Global',
-                  serviceType: ['Agentic Systems', 'Automation', 'AI Consulting', 'Executive Training'],
-                },
-                {
-                  '@type': 'BreadcrumbList',
-                  itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://greenaiautomation.ai/' },
-                    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://greenaiautomation.ai/services' },
-                    { '@type': 'ListItem', position: 3, name: 'Why GAIA', item: 'https://greenaiautomation.ai/why-gaia' },
-                  ],
-                },
-              ],
-            }),
-          }}
-        />
+        {/* Schema.org JSON-LD from data files */}
+        <JsonLd data={{
+          '@context': 'https://schema.org',
+          '@graph': [orgLd, profLd, crumbsLd],
+        }} />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main>{children}</main>

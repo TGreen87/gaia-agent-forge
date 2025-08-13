@@ -1,22 +1,26 @@
 export const metadata = { title: 'Projects & Demos' }
 export default function ProjectsAndDemosPage() {
   const demos = [
-    { title: 'Think vs Fast (GPT-5)', desc: 'Same task, two modes—see timing and sources.', id: 'think-vs-fast' },
-    { title: 'Agentic Planner', desc: 'Upload an SOP and a CSV to get a draft automation outline.', id: 'agentic-planner' },
-    { title: 'Coding Collab', desc: 'From a brief to a real API route and test.', id: 'coding-collab' },
+    { title: 'Think vs Fast', desc: 'Run a task in two modes. See timing and sources.', href: '/demos/think-vs-fast', status: 'Live' },
+    { title: 'Search with citations', desc: 'Ask a question. Get a short answer with sources.', href: '#', status: 'Preview' },
+    { title: 'Proposal draft with rules', desc: 'Provide a short brief. See a draft and a check list.', href: '#', status: 'Preview' },
+    { title: 'Inbox triage', desc: 'Route mail based on rules. See the log.', href: '#', status: 'Preview' },
   ]
   return (
     <main className="mx-auto max-w-[1200px] px-4 py-16 md:px-6">
       <header className="mb-10">
-        <h1 className="mb-4 text-4xl font-semibold tracking-tight">Projects & Demos</h1>
-        <p className="lede text-muted-foreground">Internal R&D and public demos that show our approach.</p>
+        <h1 className="mb-4 text-4xl font-semibold tracking-tight">Projects and Demos</h1>
+        <p className="lede text-muted-foreground">Working demos beat slides. Try a safe example today.</p>
       </header>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
         {demos.map((d) => (
-          <article key={d.id} id={d.id} className="md:col-span-4 rounded-md border bg-card p-6 shadow-soft">
-            <h2 className="text-2xl font-semibold">{d.title}</h2>
+          <a key={d.title} href={d.href} className="md:col-span-4 rounded-md border bg-card p-6 shadow-soft hover:bg-muted/10">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-semibold">{d.title}</h2>
+              <span className="text-xs rounded bg-secondary px-2 py-1">{d.status}</span>
+            </div>
             <p className="mt-2 text-muted-foreground">{d.desc}</p>
-          </article>
+          </a>
         ))}
       </div>
     </main>

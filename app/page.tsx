@@ -16,7 +16,7 @@ export default function HomePage() {
                 Empower your business with AI you can trust.
               </h1>
               <p className="lede measure text-muted-foreground">
-                Agentic systems, automations, and executive-grade guidance—explained clearly and delivered fast.
+                Agentic systems, automations, and executive grade guidance explained clearly and delivered fast.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row" role="group" aria-label="Primary actions">
                <Button asChild size="lg" className="focus-ring shadow-med">
@@ -54,7 +54,7 @@ export default function HomePage() {
           <article className="md:col-span-4 rounded-md border bg-card p-6 shadow-soft">
             <h3 className="mb-2 text-2xl font-semibold">Faster ops, fewer errors</h3>
             <p className="measure-compact text-muted-foreground">
-              We automate the busywork across your existing tools—tickets, scheduling, document handling—so teams focus on the work only humans should do.
+              We automate the busywork across your existing tools. Tickets, scheduling, document handling. Your team focuses on human work.
             </p>
             <div className="mt-4 text-sm">
               <Link className="underline underline-offset-4" href="/services#ops">Learn how</Link>
@@ -114,11 +114,11 @@ export default function HomePage() {
 
       {/* Proof */}
       <section className="mx-auto max-w-[1280px] px-4 py-24 md:px-6" aria-labelledby="proof">
-        <h2 id="proof" className="mb-8 text-4xl font-semibold tracking-tight">Think vs Fast — the GPT-5 demo</h2>
+        <h2 id="proof" className="mb-8 text-4xl font-semibold tracking-tight">Think vs Fast - the GPT-5 demo</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
           <article className="md:col-span-7 rounded-md border bg-card p-6 shadow-soft">
             <p className="measure text-muted-foreground">
-              The same task runs in two modes. Fast answers in seconds; Thinking reasons deeper for tougher requests. You’ll see timing and sources for both.
+              The same task runs in two modes. Fast answers in seconds. Thinking reasons deeper for tougher requests. You will see timing and sources for both.
             </p>
             <div className="mt-4">
               <Button asChild className="focus-ring" onClick={() => logEvent('demo_run', { source: 'home-proof-card' })}>
@@ -130,7 +130,7 @@ export default function HomePage() {
             <p>Past runs: Fast 1.8s · Thinking 5.2s</p>
             <p className="mt-2">Two micro-cases:</p>
             <ul className="mt-1 list-disc pl-5">
-              <li>Reduced “proposal prep” from 2 hours to 12 minutes by turning notes into drafts with citations.</li>
+              <li>Reduced proposal prep from 2 hours to 12 minutes by turning notes into drafts with citations.</li>
               <li>Cut data-entry errors by 63% by validating forms against live policy checks.</li>
             </ul>
           </aside>
@@ -180,7 +180,7 @@ export default function HomePage() {
             name: 'Green AI & Automation (GAIA)',
             url: 'https://greenaiautomation.ai',
             sameAs: ['https://cal.com/'],
-            description: 'Agentic systems, automations, and executive-grade guidance—explained clearly and delivered fast.',
+            description: 'Agentic systems, automations, and executive grade guidance explained clearly and delivered fast.',
           }),
         }}
       />

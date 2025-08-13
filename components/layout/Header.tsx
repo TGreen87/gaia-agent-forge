@@ -8,9 +8,10 @@ const navItems = [
   { href: '/services', label: 'Services' },
   { href: '/why-gaia', label: 'Why GAIA' },
   { href: '/learning-hub', label: 'Learning Hub' },
-  { href: '/projects-and-demos', label: 'Projects & Demos' },
+  { href: '/projects-and-demos', label: 'Projects and Demos' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact/Booking' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/resources', label: 'Resources' },
 ]
 
 export default function Header() {

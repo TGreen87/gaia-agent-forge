@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { track } from "@/lib/analytics";
+import { logEvent } from "@/lib/analytics";
 
 export default function ResourcesPage() {
   const [ok, setOk] = useState(false);
@@ -11,7 +11,7 @@ export default function ResourcesPage() {
     e.preventDefault();
     // Optional: send to your API or Supabase
     setOk(true);
-    track("playbook_downloaded", { section: "resources" });
+    logEvent("playbook_downloaded", { section: "resources" });
   }
 
   return (

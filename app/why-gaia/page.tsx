@@ -3,8 +3,8 @@ export default function WhyPage() {
   return (
     <main className="mx-auto max-w-[1200px] px-4 py-16 md:px-6">
       <header className="mb-10">
-        <h1 className="mb-4 text-4xl font-semibold tracking-tight">What we build isn’t a chatbot.</h1>
-        <p className="lede text-muted-foreground">Chatbots answer in a single turn. Agentic systems plan, call tools, verify, and keep records.</p>
+        <h1 className="mb-4 text-4xl font-semibold tracking-tight">Two patterns compared</h1>
+        <p className="lede text-muted-foreground">A chatbot answers once. An agentic system plans steps, calls tools, retrieves knowledge with citations, checks rules, and logs the run.</p>
       </header>
       <figure className="rounded-md border bg-card p-6 shadow-soft" aria-label="Chatbot vs Agentic Workflow diagram">
         <svg viewBox="0 0 720 260" role="img" aria-labelledby="diagram-title diagram-desc" className="w-full">
@@ -13,7 +13,7 @@ export default function WhyPage() {
           <rect x="20" y="30" width="300" height="200" rx="12" fill="hsl(var(--muted))" />
           <text x="40" y="60" fill="hsl(var(--foreground))" fontSize="14">Chatbot</text>
           <circle cx="80" cy="120" r="10" fill="hsl(var(--primary))" />
-          <text x="100" y="124" fill="hsl(var(--foreground))" fontSize="12">Prompt → Answer</text>
+          <text x="100" y="124" fill="hsl(var(--foreground))" fontSize="12">Prompt to Answer</text>
           <rect x="380" y="30" width="320" height="200" rx="12" fill="hsl(var(--muted))" />
           <text x="400" y="60" fill="hsl(var(--foreground))" fontSize="14">Agentic workflow</text>
           <circle cx="420" cy="110" r="8" fill="hsl(var(--primary))" />
@@ -25,7 +25,7 @@ export default function WhyPage() {
           <line x1="528" y1="110" x2="562" y2="110" stroke="hsl(var(--foreground))" strokeWidth="2" />
           <text x="400" y="170" fill="hsl(var(--foreground))" fontSize="12">Plan · Retrieve · Act · Verify</text>
         </svg>
-        <figcaption className="mt-3 text-sm text-muted-foreground">An agentic workflow orchestrates multiple tools (calendar, email, documents, CRM), retrieves the right knowledge with citations, and follows rules you approve. The result is a documented process you can audit.</figcaption>
+        <figcaption className="mt-3 text-sm text-muted-foreground">The agentic path plans, retrieves with citations, calls tools, checks rules, and logs the run. You can add human checks at any step.</figcaption>
       </figure>
       <section className="mt-12">
         <h2 className="mb-4 text-2xl font-semibold">FAQ</h2>
@@ -39,7 +39,7 @@ export default function WhyPage() {
             <dd className="text-muted-foreground">Yes. Access is least-privilege and stays in your environment when required.</dd>
           </div>
           <div>
-            <dt className="font-medium">What’s the first step?</dt>
+            <dt className="font-medium">What is the first step?</dt>
             <dd className="text-muted-foreground">A prototype that solves one problem with your data and tooling.</dd>
           </div>
         </dl>

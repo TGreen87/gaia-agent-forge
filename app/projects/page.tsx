@@ -1,7 +1,7 @@
 export const metadata = { title: 'Projects & Demos' }
 export default function ProjectsPage() {
   const demos = [
-    { title: 'Think vs Fast (GPT-5)', desc: 'Same task, two modes—see timing and sources.', id: 'think-vs-fast' },
+    { title: 'Think vs Fast (GPT-5)', desc: 'Same task, two modes. See timing and sources.', id: 'think-vs-fast' },
     { title: 'Agentic Planner', desc: 'Upload an SOP and a CSV to get a draft automation outline.', id: 'agentic-planner' },
     { title: 'Coding Collab', desc: 'From a brief to a real API route and test.', id: 'coding-collab' },
   ]

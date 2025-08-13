@@ -14,7 +14,7 @@ export default function HomePage() {
           <div className="mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center py-20 text-center">
             <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">Empower your business with AI you can trust.</h1>
             <p className="mb-8 max-w-2xl text-lg text-muted-foreground">
-              Agentic systems, automation, and coaching—delivered with clarity. Download the Playbook or book a discovery session.
+              Agentic systems, automation, and coaching delivered with clarity. Download the Playbook or book a discovery session.
             </p>
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <Button asChild variant="hero" size="xl">
@@ -35,7 +35,7 @@ export default function HomePage() {
               name: 'Green AI & Automation (GAIA)',
               url: 'https://greenaiautomation.ai',
               sameAs: ['https://cal.com/'],
-              description: 'Agentic systems, automation, and executive coaching—delivered with clarity.',
+              description: 'Agentic systems, automation, and executive coaching delivered with clarity.',
             }),
           }}
         />
@@ -85,7 +85,7 @@ export default function HomePage() {
       <section className="container mx-auto px-4 pb-20 md:px-6">
         <header className="mb-6">
           <h2 className="text-2xl font-semibold tracking-tight">Why GAIA</h2>
-          <p className="text-muted-foreground">More than chat—agents that orchestrate tools with safeguards.</p>
+          <p className="text-muted-foreground">More than chat. Agents that orchestrate tools with safeguards.</p>
         </header>
         <div className="grid items-center gap-6 md:grid-cols-2">
           <div className="rounded-lg border p-6">

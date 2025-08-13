@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://greenaiautomation.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://greenaiautomation.ai/services" },
+    { "@type": "ListItem", "position": 3, "name": "Why GAIA", "item": "https://greenaiautomation.ai/why-gaia" }
+  ]
+}
+
+

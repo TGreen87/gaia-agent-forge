@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { track } from "@/lib/analytics";
+import { logEvent } from "@/lib/analytics";
 
 export default function ThinkVsFast() {
   const [prompt, setPrompt] = useState(""); 
@@ -14,7 +14,7 @@ export default function ThinkVsFast() {
     setTimeout(() => {
       setOut({ fast: "Fast path result with sources: [link]", think: "Think path result with sources: [link]" });
       setStatus("done");
-      track("demo_run", { variant: "think_vs_fast" });
+      logEvent("demo_run", { variant: "think_vs_fast" });
     }, 800);
   }
 
