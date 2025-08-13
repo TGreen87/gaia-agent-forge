@@ -1,5 +1,12 @@
 import services from '@/data/services.json'
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  const all = (services as any).groups.flatMap((g: any) => g.items)
+  return all.map((s: any) => ({ slug: s.slug }))
+}
+
 export default function ServicePage({ params }: { params: { slug: string } }) {
   const all = (services as any).groups.flatMap((g: any) => g.items)
   const svc = all.find((s: any) => s.slug === params.slug)

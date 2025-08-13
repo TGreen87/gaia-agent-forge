@@ -26,15 +26,11 @@ export default function DemosPage() {
     setThinking(null)
     try {
       logEvent('demo_run', { source: 'demos-page' })
-      const res = await fetch('/api/demos/compare', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
-      })
-      if (!res.ok) throw new Error('Request failed')
-      const data = await res.json() as { fast: Result; thinking: Result }
-      setFast(data.fast)
-      setThinking(data.thinking)
+      // Simulate client-only results for static export
+      setTimeout(() => {
+        setFast({ model: 'gpt-5', durationMs: 1800, answer: `Fast answer for: ${prompt}`, citations: ['Source A'], confidence: 'medium' })
+        setThinking({ model: 'gpt-5-thinking', durationMs: 5200, answer: `Thinking answer with brief reasoning for: ${prompt}` , citations: ['Source A', 'Source B'], confidence: 'high' })
+      }, 600)
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {

@@ -37,7 +37,7 @@ async function callModelStub(model: 'gpt-5' | 'gpt-5-thinking', prompt: string):
     answer: model === 'gpt-5'
       ? `Fast answer for: ${prompt.slice(0, 140)}...`
       : `Thinking answer with brief reasoning for: ${prompt.slice(0, 140)}...` 
-        + `\n\nReasoning: Planned steps → Retrieved 2 snippets → Cross-checked → Finalized.`,
+        + `\n\nReasoning: Planned steps -> Retrieved 2 snippets -> Cross-checked -> Finalized.`,
     citations: ['Placeholder Source A', 'Placeholder Source B'],
     simulatedMs,
     confidence: model === 'gpt-5' ? 'medium' : 'high',
