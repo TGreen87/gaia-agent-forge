@@ -1,15 +1,31 @@
-import services from '@/data/services.json'
+import servicesData from '@/data/services.json'
+
+type ServiceItem = {
+  slug: string
+  name: string
+  summary: string
+  first_projects: string[]
+  deliverables: string[]
+}
+
+type ServiceGroup = {
+  id: string
+  title: string
+  items: ServiceItem[]
+}
+
+type Services = { groups: ServiceGroup[] }
 
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  const all = (services as any).groups.flatMap((g: any) => g.items)
-  return all.map((s: any) => ({ slug: s.slug }))
+  const all = (servicesData as Services).groups.flatMap((g) => g.items)
+  return all.map((s) => ({ slug: s.slug }))
 }
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
-  const all = (services as any).groups.flatMap((g: any) => g.items)
-  const svc = all.find((s: any) => s.slug === params.slug)
+  const all = (servicesData as Services).groups.flatMap((g) => g.items)
+  const svc = all.find((s) => s.slug === params.slug)
 
   if (!svc) {
     return (
