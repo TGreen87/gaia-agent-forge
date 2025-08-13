@@ -1,6 +1,16 @@
 // Plausible event stubs (wiring later). Use in client components only.
 
-export type GaiaEvent = 'playbook_downloaded' | 'discovery_booked' | 'demo_run'
+export type GaiaEvent = 
+  | 'playbook_downloaded' 
+  | 'discovery_booked' 
+  | 'demo_run'
+  | 'view_proof'
+  | 'view_pilot_plan'
+  | 'view_search_with_citations'
+  | 'webvitals_cls'
+  | 'webvitals_inp'
+  | 'webvitals_lcp'
+  | 'webvitals_fid'
 
 type PlausibleFn = (event: string, options?: { props?: Record<string, string | number | boolean> }) => void
 

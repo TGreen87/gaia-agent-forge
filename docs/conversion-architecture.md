@@ -1,29 +1,33 @@
-# Conversion Architecture and Event Map
-Updated August 13, 2025
+# Conversion Architecture
 
-Journey
-1. Arrive on Home or an article.
-2. Read a principle or a short proof.
-3. Click to Resources and request the Playbook.
-4. Run a demo or read a case.
-5. Book a discovery call or reply to the Playbook follow up.
+## Entry Points
+1. **Home page** - Hero with clear value prop and dual CTAs
+2. **Services** - Detailed service pages with pilot CTAs
+3. **Proof** - Social proof with case studies
+4. **Demos** - Interactive experiences that demonstrate value
 
-Events (to send to Plausible)
-- view_home
-- view_services
-- view_why_gaia
-- view_learning_hub
-- view_projects
-- playbook_downloaded
-- demo_run with variant
-- discovery_booked
-- contact_sent
-- article_read with slug
+## Conversion Funnel
+1. **Awareness** - Content consumption (playbook, demos, proof)
+2. **Interest** - Demo interaction and pilot plan generation
+3. **Consideration** - Discovery call booking
+4. **Decision** - Pilot proposal and contract
 
-Budgets
-- INP p75 under 200 ms on desktop and mobile.
-- CLS under 0.1 at p75.
-- LCP under 2.5 seconds at p75.
+## Key Events
+- `playbook_downloaded` - Lead capture
+- `demo_run` - Engagement tracking
+- `discovery_booked` - Sales qualified lead
+- `pilot_started` - Revenue conversion
 
-Notes
-Track only what you need. Use short names and a few properties. Keep privacy by default.
+## Lead Scoring
+- Playbook download: +10 points
+- Demo completion: +25 points
+- Pilot plan generated: +15 points
+- Discovery call: +50 points
+- Pilot signed: +100 points
+
+## Nurture Sequence
+1. Welcome email with playbook
+2. Demo follow-up (3 days)
+3. Case study sharing (1 week)
+4. Pilot plan reminder (2 weeks)
+5. Discovery call invitation (1 month)

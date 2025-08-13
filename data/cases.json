@@ -1,18 +1,37 @@
 {
-  "items": [
+  "cases": [
     {
+      "id": "proposal-drafting",
       "title": "Proposal drafting with citations",
-      "summary": "Cut prep from two hours to twelve minutes with sources. Team shipped three proposals the next week.",
-      "metric": {
-        "time_saved_minutes": 108
-      }
+      "description": "We turned a two hour manual process into a twelve minute draft with sources. The team approved the guardrails. The next week the team shipped three proposals with the same quality.",
+      "metrics": {
+        "time_saved": "90%",
+        "accuracy": "95%",
+        "team_adoption": "100%"
+      },
+      "tags": ["documentation", "sales", "automation"]
     },
     {
-      "title": "Inbox triage pilot",
-      "summary": "Routing accuracy matched the manual baseline and reduced response time in the first week.",
-      "metric": {
-        "accuracy": "baseline matched"
-      }
+      "id": "data-entry-validation",
+      "title": "Data entry validation",
+      "description": "Cut data entry errors by 63% by validating forms against live policy checks. The system catches mistakes before they reach the database.",
+      "metrics": {
+        "error_reduction": "63%",
+        "processing_time": "50% faster",
+        "compliance": "100%"
+      },
+      "tags": ["data", "compliance", "validation"]
+    },
+    {
+      "id": "inbox-triage",
+      "title": "Inbox triage automation",
+      "description": "Automated email routing based on content and sender. Reduced manual sorting time by 80% while maintaining 99% accuracy.",
+      "metrics": {
+        "time_saved": "80%",
+        "accuracy": "99%",
+        "response_time": "2x faster"
+      },
+      "tags": ["email", "automation", "productivity"]
     }
   ]
 }

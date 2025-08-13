@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/seo/JsonLd'
+import TrackVitals from '@/app/_components/TrackVitals'
 import orgLd from '@/data/jsonld-organization.json'
 import profLd from '@/data/jsonld-professional-service.json'
 import crumbsLd from '@/data/jsonld-breadcrumbs.json'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 import { Inter, Newsreader } from 'next/font/google'
 
 export const metadata: Metadata = {
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main>{children}</main>
           <Footer />
+          <TrackVitals />
         </ThemeProvider>
       </body>
     </html>

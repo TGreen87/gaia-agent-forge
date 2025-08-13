@@ -1,26 +1,31 @@
 # GAIA Offer Ladder
-Updated August 13, 2025
 
-Purpose
-Give visitors a safe next step that fits their risk level. Each tier has a clear output and a stop rule.
+## Free Tier
+- AI Adoption Playbook download
+- Demo access (Think vs Fast, Search with citations)
+- Pilot Plan Wizard
+- Proof cases and examples
 
-Free
-- AI Adoption Playbook. HTML download behind a light gate.
-- Three Learning Hub articles.
-- Monthly Field Notes email with short, practical wins.
+## Discovery Call ($0)
+- 30 minute consultation
+- Opportunity assessment
+- Risk evaluation
+- Next steps recommendation
 
-Entry paid
-- Two week pilot. Fixed price with a narrow goal, a guardrail list, and a result readout.
-  Output: working slice, test set, and a short report with time saved and accuracy.
+## Two Week Pilot ($5,000)
+- Working prototype with your data
+- Accuracy measurement
+- Guardrail setup
+- Handover documentation
 
-Mid tier
-- Proof Lab. Four weeks. Two pilots run in parallel with shared tooling and eval harness.
-  Output: two working slices, a shared dataset, and a decision brief.
+## Full Implementation ($15,000+)
+- Production deployment
+- Team training
+- Ongoing support
+- Performance monitoring
 
-Retainer
-- Improvement and care. A monthly block to keep systems healthy, extend coverage, and run evals.
-  Output: change log, monthly scorecard, and a small roadmap.
-
-Coaching
-- Executive coaching 1 to 1. Practical sessions with demos and homework that sticks.
-  Output: a personal plan and a working demo tied to your workflow.
+## Enterprise ($50,000+)
+- Multi-system integration
+- Custom development
+- Dedicated support
+- SLA guarantees

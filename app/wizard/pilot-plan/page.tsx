@@ -1,108 +1,231 @@
-"use client";
-import { useState } from "react";
-import { track } from "@/lib/analytics";
+"use client"
+import { useState, useEffect } from 'react'
+import { logEvent } from '@/lib/analytics'
 
-type Plan = { goal: string; guardrails: string[]; steps: string[]; metrics: string[]; risks: string[] };
+type PilotPlan = {
+  goal: string
+  scope: string
+  timeline: string[]
+  deliverables: string[]
+  risks: string[]
+  success: string[]
+}
 
 export default function PilotPlanWizard() {
-  const [tooling, setTooling] = useState<string[]>([]);
-  const [process, setProcess] = useState(""); // short description
-  const [goal, setGoal] = useState("");      // definition of done
-  const [plan, setPlan] = useState<Plan | null>(null);
+  const [step, setStep] = useState(1)
+  const [formData, setFormData] = useState({
+    company: '',
+    industry: '',
+    problem: '',
+    team: '',
+    timeline: ''
+  })
+  const [plan, setPlan] = useState<PilotPlan | null>(null)
 
-  function toggle(tool: string) {
-    setTooling((prev) => prev.includes(tool) ? prev.filter(t => t !== tool) : [...prev, tool]);
+  useEffect(() => {
+    logEvent('view_pilot_plan')
+  }, [])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Generate a sample plan based on inputs
+    const generatedPlan: PilotPlan = {
+      goal: `Automate ${formData.problem} to reduce manual work by 70%`,
+      scope: `Focus on ${formData.industry} specific workflows with ${formData.team} team`,
+      timeline: [
+        'Week 1: Data analysis and tool integration',
+        'Week 2: Prototype development and testing',
+        'Week 3: Pilot deployment and monitoring',
+        'Week 4: Results analysis and handover'
+      ],
+      deliverables: [
+        'Working prototype with your data',
+        'Accuracy measurement report',
+        'Guardrail configuration',
+        'Handover documentation'
+      ],
+      risks: [
+        'Data quality issues',
+        'Integration complexity',
+        'Team adoption resistance'
+      ],
+      success: [
+        '90% time reduction in target process',
+        '95% accuracy maintained',
+        'Team confidence in automation'
+      ]
+    }
+    
+    setPlan(generatedPlan)
+    setStep(3)
+    logEvent('demo_run', { variant: 'pilot_plan' })
   }
 
-  function buildPlan(): Plan {
-    const g = goal || "Reduce time and errors for a small repeating task";
-    const guards = [
-      "No exposure of sensitive data in logs",
-      "Human sign off on any external message",
-      "Use least privilege for all connectors"
-    ];
-    const steps = [
-      "Prototype with a small test set using your tools",
-      "Add a simple evaluation for accuracy and time saved",
-      "Pilot with a small group for one week",
-      "Decide to scale or stop based on the numbers"
-    ];
-    const metrics = [
-      "Accuracy vs a labeled set",
-      "Time saved per task",
-      "Error rate before and after"
-    ];
-    const risks = [
-      "Hallucination if retrieval is weak. Mitigate with citations and checks.",
-      "Over automation. Keep a stop rule and a rollback plan."
-    ];
-    return { goal: g, guardrails: guards, steps, metrics, risks };
-  }
-
-  function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const p = buildPlan();
-    setPlan(p);
-    track('demo_run', { variant: 'pilot_plan' });
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-3xl font-semibold">Pilot Plan Wizard</h1>
-      <p className="mt-2 text-muted-foreground">Describe a small process. We will outline a safe two week plan.</p>
+    <main className="mx-auto max-w-[1200px] px-4 py-16 md:px-6">
+      <header className="mb-10">
+        <h1 className="mb-4 text-4xl font-semibold tracking-tight">Pilot Plan Wizard</h1>
+        <p className="lede text-muted-foreground">Generate a two week plan for your first AI project.</p>
+      </header>
 
-      <form onSubmit={onSubmit} className="mt-8 space-y-4">
-        <label className="block">
-          <span className="text-sm">Your process. One sentence.</span>
-          <input className="mt-1 w-full rounded-md border bg-background px-3 py-2" value={process} onChange={(e)=>setProcess(e.target.value)} placeholder="Draft proposals from past work"/>
-        </label>
-
-        <label className="block">
-          <span className="text-sm">Definition of done</span>
-          <input className="mt-1 w-full rounded-md border bg-background px-3 py-2" value={goal} onChange={(e)=>setGoal(e.target.value)} placeholder="A draft with sources in under 15 minutes"/>
-        </label>
-
-        <fieldset className="mt-2">
-          <legend className="text-sm">Your tools</legend>
-          <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
-            {['Google Drive','Gmail','Notion','Slack','Trello','HubSpot','Pipedrive','Xero','MYOB'].map(t => (
-              <label key={t} className="flex items-center gap-2">
-                <input type="checkbox" checked={tooling.includes(t)} onChange={()=>toggle(t)} />
-                <span>{t}</span>
-              </label>
-            ))}
+      {step === 1 && (
+        <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-6">
+          <div>
+            <label className="block text-sm font-medium mb-2">Company size</label>
+            <input
+              type="text"
+              value={formData.company}
+              onChange={(e) => handleInputChange('company', e.target.value)}
+              className="w-full rounded-md border bg-background p-3"
+              placeholder="e.g., 50 person SaaS company"
+              required
+            />
           </div>
-        </fieldset>
 
-        <button type="submit" className="btn btn-primary">Build the plan</button>
-      </form>
+          <div>
+            <label className="block text-sm font-medium mb-2">Industry</label>
+            <input
+              type="text"
+              value={formData.industry}
+              onChange={(e) => handleInputChange('industry', e.target.value)}
+              className="w-full rounded-md border bg-background p-3"
+              placeholder="e.g., Healthcare, Finance, E-commerce"
+              required
+            />
+          </div>
 
-      {plan && (
-        <section className="mt-10 rounded-md border p-6">
-          <h2 className="text-xl font-medium">Your two week plan</h2>
-          <p className="mt-2">Goal: {plan.goal}</p>
+          <div>
+            <label className="block text-sm font-medium mb-2">Main problem to solve</label>
+            <textarea
+              value={formData.problem}
+              onChange={(e) => handleInputChange('problem', e.target.value)}
+              className="w-full rounded-md border bg-background p-3"
+              rows={3}
+              placeholder="Describe the manual process you want to automate..."
+              required
+            />
+          </div>
 
-          <h3 className="mt-4 font-medium">Guardrails</h3>
-          <ul className="list-disc pl-5 text-sm mt-2">
-            {plan.guardrails.map(x => <li key={x}>{x}</li>)}
-          </ul>
+          <div>
+            <label className="block text-sm font-medium mb-2">Team involved</label>
+            <input
+              type="text"
+              value={formData.team}
+              onChange={(e) => handleInputChange('team', e.target.value)}
+              className="w-full rounded-md border bg-background p-3"
+              placeholder="e.g., Operations team, 5 people"
+              required
+            />
+          </div>
 
-          <h3 className="mt-4 font-medium">Steps</h3>
-          <ol className="list-decimal pl-5 text-sm mt-2">
-            {plan.steps.map(x => <li key={x}>{x}</li>)}
-          </ol>
+          <div>
+            <label className="block text-sm font-medium mb-2">Timeline preference</label>
+            <select
+              value={formData.timeline}
+              onChange={(e) => handleInputChange('timeline', e.target.value)}
+              className="w-full rounded-md border bg-background p-3"
+              required
+            >
+              <option value="">Select timeline</option>
+              <option value="2-weeks">2 weeks (recommended)</option>
+              <option value="4-weeks">4 weeks</option>
+              <option value="6-weeks">6 weeks</option>
+            </select>
+          </div>
 
-          <h3 className="mt-4 font-medium">Metrics</h3>
-          <ul className="list-disc pl-5 text-sm mt-2">
-            {plan.metrics.map(x => <li key={x}>{x}</li>)}
-          </ul>
+          <button
+            type="submit"
+            className="w-full rounded-md bg-primary px-6 py-3 text-primary-foreground hover:bg-primary/90"
+          >
+            Generate Plan
+          </button>
+        </form>
+      )}
 
-          <h3 className="mt-4 font-medium">Risks</h3>
-          <ul className="list-disc pl-5 text-sm mt-2">
-            {plan.risks.map(x => <li key={x}>{x}</li>)}
-          </ul>
-        </section>
+      {step === 3 && plan && (
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 rounded-md border bg-card p-6">
+            <h2 className="mb-4 text-2xl font-semibold">Your Two Week Pilot Plan</h2>
+            
+            <div className="space-y-6">
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Goal</h3>
+                <p className="text-muted-foreground">{plan.goal}</p>
+              </section>
+
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Scope</h3>
+                <p className="text-muted-foreground">{plan.scope}</p>
+              </section>
+
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Timeline</h3>
+                <ul className="space-y-2">
+                  {plan.timeline.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Deliverables</h3>
+                <ul className="space-y-2">
+                  {plan.deliverables.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Success Metrics</h3>
+                <ul className="space-y-2">
+                  {plan.success.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="mb-2 text-lg font-medium">Risks & Mitigation</h3>
+                <ul className="space-y-2">
+                  {plan.risks.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a 
+              href="https://cal.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block rounded-md bg-primary px-6 py-3 text-primary-foreground hover:bg-primary/90"
+              onClick={() => logEvent('discovery_booked', { source: 'pilot_plan' })}
+            >
+              Book Discovery Call
+            </a>
+          </div>
+        </div>
       )}
     </main>
-  );
+  )
 }

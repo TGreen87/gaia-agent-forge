@@ -1,8 +1,11 @@
-"use client";
-import { useEffect } from 'react';
-import { initWebVitals } from '@/lib/vitals';
+"use client"
+import { useEffect } from 'react'
+import { trackWebVitals } from '@/lib/vitals'
 
 export default function TrackVitals() {
-  useEffect(() => { initWebVitals(); }, []);
-  return null;
+  useEffect(() => {
+    trackWebVitals()
+  }, [])
+
+  return null
 }
