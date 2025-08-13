@@ -1,0 +1,256 @@
+{
+  "groups": [
+    {
+      "id": "build",
+      "title": "Build",
+      "items": [
+        {
+          "slug": "agentic-systems",
+          "name": "Agentic Systems",
+          "summary": "Systems that plan steps, call tools, retrieve knowledge with citations, verify rules, and log runs.",
+          "first_projects": [
+            "Intake triage",
+            "Scheduling with rules",
+            "Proposal drafts with sources"
+          ],
+          "deliverables": [
+            "Working slice",
+            "Small test set",
+            "Guardrail list"
+          ]
+        },
+        {
+          "slug": "automation-engineering",
+          "name": "Automation Engineering",
+          "summary": "Code and no code flows that move work across tools with logs and rollback.",
+          "first_projects": [
+            "Lead routing",
+            "Document QA",
+            "Inbox triage"
+          ],
+          "deliverables": [
+            "One live flow",
+            "Logs",
+            "Rollback plan"
+          ]
+        },
+        {
+          "slug": "web-development",
+          "name": "Web Development",
+          "summary": "Performance first sites and apps with a demo and a Resources area.",
+          "first_projects": [
+            "Clean site",
+            "Playbook gate",
+            "Demo page"
+          ],
+          "deliverables": [
+            "Live page",
+            "Demo",
+            "Docs"
+          ]
+        },
+        {
+          "slug": "search-with-citations",
+          "name": "Search with citations",
+          "summary": "Retrieval that returns answers with sources, not guesses.",
+          "first_projects": [
+            "Policy search",
+            "Support knowledge",
+            "Sales Q and A"
+          ],
+          "deliverables": [
+            "Search UI",
+            "Cited answers",
+            "Feedback button"
+          ]
+        },
+        {
+          "slug": "document-processing",
+          "name": "Document processing",
+          "summary": "Safe extraction and transformation with simple rules.",
+          "first_projects": [
+            "Contracts",
+            "Invoices",
+            "Forms"
+          ],
+          "deliverables": [
+            "Pipeline",
+            "Validation",
+            "Handoff folder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "improve",
+      "title": "Improve",
+      "items": [
+        {
+          "slug": "workflow-simplification",
+          "name": "Workflow simplification",
+          "summary": "Remove steps and tools that add little value.",
+          "first_projects": [
+            "Intake",
+            "Approvals",
+            "Status updates"
+          ],
+          "deliverables": [
+            "New workflow",
+            "Dashboard"
+          ]
+        },
+        {
+          "slug": "quality-checks",
+          "name": "Quality checks",
+          "summary": "Verification steps that catch errors early.",
+          "first_projects": [
+            "Draft checks",
+            "Policy checks",
+            "Data validation"
+          ],
+          "deliverables": [
+            "Check list",
+            "Pass or fail log"
+          ]
+        },
+        {
+          "slug": "analytics-that-people-read",
+          "name": "Analytics that people read",
+          "summary": "Facts you can act on. No noise. Clear questions and answers.",
+          "first_projects": [
+            "Weekly report",
+            "Post release checks"
+          ],
+          "deliverables": [
+            "One page report",
+            "Repeatable task"
+          ]
+        },
+        {
+          "slug": "developer-enablement",
+          "name": "Developer enablement",
+          "summary": "Scripts and templates that remove friction for teams.",
+          "first_projects": [
+            "Repo scaffolds",
+            "Test seeds",
+            "Eval harness"
+          ],
+          "deliverables": [
+            "Kit",
+            "README"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "govern",
+      "title": "Govern",
+      "items": [
+        {
+          "slug": "safety-and-guardrails",
+          "name": "Safety and guardrails",
+          "summary": "Limits and rules that keep systems in bounds.",
+          "first_projects": [
+            "PII filters",
+            "Approval steps"
+          ],
+          "deliverables": [
+            "Rule set",
+            "Test pack",
+            "Sign off step"
+          ]
+        },
+        {
+          "slug": "evaluation-and-monitoring",
+          "name": "Evaluation and monitoring",
+          "summary": "Score what matters and watch for drift.",
+          "first_projects": [
+            "Answer accuracy",
+            "Latency and cost budgets"
+          ],
+          "deliverables": [
+            "Eval set",
+            "Score view",
+            "Alerts"
+          ]
+        },
+        {
+          "slug": "data-handling",
+          "name": "Data handling",
+          "summary": "Clean inputs and clear access rules.",
+          "first_projects": [
+            "Least privilege",
+            "Redaction",
+            "Masking in tests"
+          ],
+          "deliverables": [
+            "Data map",
+            "Access changes"
+          ]
+        },
+        {
+          "slug": "change-playbooks",
+          "name": "Change playbooks",
+          "summary": "Short plans for upgrades and rollbacks.",
+          "first_projects": [
+            "Model change",
+            "Index rebuild",
+            "New connector"
+          ],
+          "deliverables": [
+            "Tested plan",
+            "Stop rule",
+            "Rollback"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teach",
+      "title": "Teach",
+      "items": [
+        {
+          "slug": "executive-coaching",
+          "name": "Executive coaching 1 to 1",
+          "summary": "Private sessions for leaders who want clarity and results.",
+          "first_projects": [
+            "Plan review",
+            "Demo critique",
+            "Pilot plan"
+          ],
+          "deliverables": [
+            "Clear plan",
+            "Working demo"
+          ]
+        },
+        {
+          "slug": "team-training",
+          "name": "Team training",
+          "summary": "Workshops that show the path from idea to safe pilot.",
+          "first_projects": [
+            "Live build",
+            "Guardrails",
+            "Eval basics"
+          ],
+          "deliverables": [
+            "Trained group",
+            "Pilot plan"
+          ]
+        },
+        {
+          "slug": "playbooks-and-writing",
+          "name": "Playbooks and writing",
+          "summary": "Guides your team can reuse. Short and practical.",
+          "first_projects": [
+            "Adoption playbook",
+            "Guardrail checklist"
+          ],
+          "deliverables": [
+            "One playbook",
+            "Checklist"
+          ]
+        }
+      ]
+    }
+  ]
+}
