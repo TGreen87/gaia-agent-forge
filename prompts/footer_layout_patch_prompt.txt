@@ -1,0 +1,5 @@
+Goal
+Add links to the footer and mount TrackVitals and optional JsonLd.
+
+Plan
+Use the code in packs/runtime/snippets/layout_patch.tsx.txt and footer_patch.tsx.txt.

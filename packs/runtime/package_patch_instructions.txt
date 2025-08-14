@@ -1,0 +1,13 @@
+Add to package.json:
+
+"devDependencies": {
+  "archiver": "^6.0.1"
+},
+"scripts": {
+  "prebuild": "node scripts/make-packs.mjs",
+  "sitemap": "node scripts/generate-sitemap.mjs"
+}
+
+Netlify
+- Ensure SITE_URL is set in env to https://greenaiautomation.ai
+- If you use n8n, set N8N_WEBHOOK_URL as well.

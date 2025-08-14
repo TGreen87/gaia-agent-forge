@@ -1,0 +1,11 @@
+Goal
+Use Notion as a source for public content. Sync Articles and Cases, then render static pages for the Learning Hub and Proof.
+
+Plan
+1) Copy packs/notion into the repo. Set NOTION_TOKEN and the two database IDs.
+2) Run scripts/sync-notion.mjs locally to create content/blog/*.md and data/blog-index.json and to update data/cases.json.
+3) Render /learning-hub from blog-index.json and markdown files. Keep static export friendly.
+
+Acceptance
+- /learning-hub lists articles.
+- /proof shows cases from data/cases.json.

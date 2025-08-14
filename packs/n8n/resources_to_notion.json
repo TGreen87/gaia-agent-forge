@@ -1,0 +1,33 @@
+{
+  "name": "GAIA Resources to Notion",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "gaia-resources",
+        "methods": [
+          "POST"
+        ]
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook"
+    },
+    {
+      "parameters": {
+        "resource": "page",
+        "operation": "create"
+      },
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          "Notion",
+          "main"
+        ]
+      ]
+    }
+  }
+}

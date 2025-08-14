@@ -1,0 +1,11 @@
+Goal
+Publish delivery packs as stable zips at /packs and add a Downloads page.
+
+Plan
+Copy packs/phase-1 and packs/phase-2 into packs-src/phase-1 and packs-src/phase-2.
+Add scripts/make-packs.mjs and set "prebuild" to zip them into public/packs.
+Add app/downloads/page.tsx and link it in the footer.
+
+Acceptance
+Build outputs public/packs/phase-1.zip and phase-2.zip.
+/downloads lists the two zips and the Playbook.

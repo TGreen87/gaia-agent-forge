@@ -1,24 +1,17 @@
-import services from "@/data/services.json";
-
-export default function Services() {
-  return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="text-3xl font-semibold">Services</h1>
-      <p className="mt-2 text-muted-foreground">Pick the outcome that fits your team. We start small and we ship what works.</p>
-
-      {services.groups.map((group: any) => (
-        <section key={group.id} className="mt-10">
-          <h2 className="text-xl font-medium">{group.title}</h2>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {group.items.map((item: any) => (
-              <a key={item.slug} href={`/services/${item.slug}`} className="rounded-md border p-4 hover:bg-muted/10">
-                <h3 className="text-lg font-medium">{item.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{item.summary}</p>
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
-    </main>
-  );
+import Link from 'next/link';
+import data from '@/data/services.json';
+export default function ServicesIndex(){
+  return (<main className="mx-auto max-w-5xl px-6 py-16">
+    <h1 className="text-3xl font-semibold">Services</h1>
+    {data.groups.map((g:any)=>(<section key={g.id} className="mt-8">
+      <h2 className="text-xl font-medium">{g.title}</h2>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {g.items.map((it:any)=>(<article key={it.slug} className="gaia-card p-4">
+          <h3 className="text-lg font-medium">{it.name}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{it.summary}</p>
+          <Link href={`/services/${it.slug}`} className="mt-3 inline-block underline">Learn more</Link>
+        </article>))}
+      </div>
+    </section>))}
+  </main>);
 }

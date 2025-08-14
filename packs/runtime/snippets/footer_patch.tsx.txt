@@ -1,0 +1,11 @@
+// Add to your footer component:
+<footer className="mt-12 border-t py-6 text-sm text-muted-foreground">
+  <nav className="mx-auto flex max-w-5xl items-center justify-between px-6">
+    <p>© Green AI and Automation</p>
+    <ul className="flex gap-4">
+      <li><a className="underline" href="/downloads">Downloads</a></li>
+      <li><a className="underline" href="/terms">Terms</a></li>
+      <li><a className="underline" href="/learning-hub">Learning Hub</a></li>
+    </ul>
+  </nav>
+</footer>

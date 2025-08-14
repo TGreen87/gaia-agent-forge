@@ -1,0 +1,26 @@
+name: Notion Sync
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm i @notionhq/client
+      - run: node scripts/sync-notion.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ARTICLES: ${{ secrets.NOTION_DB_ARTICLES }}
+          NOTION_DB_CASES: ${{ secrets.NOTION_DB_CASES }}
+      - name: Commit changes
+        run: |
+          git config user.name "gaia-bot"
+          git config user.email "bot@greenaiautomation.ai"
+          git add -A
+          git commit -m "chore: sync Notion content" || echo "no changes"
+          git push

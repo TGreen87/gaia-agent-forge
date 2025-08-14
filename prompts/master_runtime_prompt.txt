@@ -1,0 +1,24 @@
+SYSTEM
+- No em dashes in visible copy.
+- Short sentences. Calm tone.
+- Next.js 15 App Router. Netlify friendly. Prefer static export.
+
+Goal
+Wire the runtime pack into the GAIA site. Ship Resources reveal with event, demo success with logs, Contact API with optional n8n, JSON-LD helper, TrackVitals, Downloads page, and packs zipping script.
+
+Plan
+1) Copy files from packs/runtime into the repo in matching folders.
+2) In root layout, mount TrackVitals. On the home head, render JsonLd with data/jsonld-*.json if present.
+3) Add devDependency "archiver": "^6.0.1" and scripts "prebuild" and "sitemap".
+4) Create packs-src/phase-1 and packs-src/phase-2 from packs/phase-* and commit. On build, zips appear in public/packs.
+5) Ensure footer links to /downloads and /terms.
+6) Confirm /resources shows a reveal and sends track('playbook_downloaded').
+7) Confirm demo pages send track('demo_run', { variant }) and show a run log.
+
+Acceptance
+- Build and export succeed.
+- /downloads lists Phase 1 zip, Phase 2 zip, and the Playbook.
+- /resources reveals the Playbook after submit and sends the event.
+- Demos render a success panel and a log.
+- Contact posts to N8N_WEBHOOK_URL if set else logs.
+- No em dashes in UI.

@@ -1,0 +1,5 @@
+4082530b2e79ece17bc24fe38a7d44fb  .env.example
+5c47795d56829bfcd772532e6ea59b5b  docs/notion-mapping.md
+dd17b117ddd2621ee8bd3cc7c3b3a277  scripts/sync-notion.mjs
+5ec69293565aa79d92066c93d4cb7248  .github/workflows/notion-sync.yml
+2994b7a17c32c3ecee378457834415c6  public/resources/Proposal_Templates.md

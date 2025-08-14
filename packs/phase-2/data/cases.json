@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "title": "Proposal drafting with citations",
+      "summary": "Cut prep from two hours to twelve minutes with sources. Team shipped three proposals the next week.",
+      "metric": {
+        "time_saved_minutes": 108
+      }
+    },
+    {
+      "title": "Inbox triage pilot",
+      "summary": "Routing accuracy matched the manual baseline and reduced response time in the first week.",
+      "metric": {
+        "accuracy": "baseline matched"
+      }
+    }
+  ]
+}

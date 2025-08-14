@@ -1,0 +1,10 @@
+// In app/layout.tsx import and mount:
+import TrackVitals from '@/app/_components/TrackVitals';
+// Inside <body> add:
+<TrackVitals />
+
+// Optional JSON-LD on the home page only:
+import JsonLd from '@/app/_components/JsonLd';
+// In the head of the home page render:
+{/* <JsonLd data={require('@/data/jsonld-organization.json')} /> */}
+{/* <JsonLd data={require('@/data/jsonld-professional-service.json')} /> */}

@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Green AI and Automation",
+  "url": "https://greenaiautomation.ai/",
+  "logo": "https://greenaiautomation.ai/og-image.png",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "tom@greenaiautomation.ai",
+      "areaServed": "Global",
+      "availableLanguage": [
+        "en"
+      ]
+    }
+  ]
+}

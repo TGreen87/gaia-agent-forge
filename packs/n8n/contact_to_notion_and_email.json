@@ -1,0 +1,47 @@
+{
+  "name": "GAIA Contact to Notion and Email",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "gaia-contact",
+        "methods": [
+          "POST"
+        ]
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook"
+    },
+    {
+      "parameters": {
+        "resource": "page",
+        "operation": "create"
+      },
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion"
+    },
+    {
+      "parameters": {
+        "fromEmail": "no-reply@greenaiautomation.ai",
+        "toEmail": "tom@greenaiautomation.ai",
+        "subject": "New site contact",
+        "text": "A contact form was sent."
+      },
+      "name": "Email",
+      "type": "n8n-nodes-base.emailSend"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          "Notion",
+          "main"
+        ],
+        [
+          "Email",
+          "main"
+        ]
+      ]
+    }
+  }
+}
