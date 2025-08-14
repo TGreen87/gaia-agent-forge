@@ -7,6 +7,8 @@ export default function Footer() {
           <a className="hover:underline" href="/privacy">Privacy</a>
           <a className="hover:underline" href="/accessibility">Accessibility</a>
           <a className="hover:underline" href="/resources">Resources</a>
+          <a className="hover:underline" href="/downloads">Downloads</a>
+          <a className="hover:underline" href="/terms">Terms</a>
         </nav>
         <small className="block text-xs">We never sell your data. Cookies only for essential functionality and anonymous analytics.</small>
       </div>
