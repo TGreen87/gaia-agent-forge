@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Sample Article",
+    "slug": "sample",
+    "date": "2025-01-01",
+    "summary": "A short example article rendered from Markdown.",
+    "tags": ["example"]
+  }
+]
+
+

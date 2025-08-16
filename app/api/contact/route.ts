@@ -19,13 +19,34 @@ export async function POST(request: Request) {
     const company = String(payload.company || '').trim()
     const notes = String(payload.notes || '').trim()
     const interests = payload.interests
+    const kind = String(payload.kind || '').trim()
 
     if (!name || !email) {
       return NextResponse.json({ ok: false, error: 'Missing required fields' }, { status: 400 })
     }
 
-    // TODO: integrate with your CRM/email/webhook. For now, log.
-    console.log('[contact] submission', { name, email, company, interests, notes })
+    const webhookUrl = process.env.N8N_WEBHOOK_URL
+    const payloadOut = { name, email, company, interests, notes, kind }
+
+    if (!webhookUrl) {
+      console.log('[contact] submission (no webhook configured)', payloadOut)
+      return NextResponse.json({ ok: true })
+    }
+
+    try {
+      const res = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payloadOut)
+      })
+      if (!res.ok) {
+        console.error('[contact] webhook failed', res.status)
+      }
+    } catch (err) {
+      console.error('[contact] webhook error', err)
+    }
+
+    console.log('[contact] submission', payloadOut)
 
     return NextResponse.json({ ok: true })
   } catch (error) {

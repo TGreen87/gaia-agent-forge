@@ -11,6 +11,11 @@ export default function ResourcesPage() {
     const email = String(data.get('email') || '').trim()
     if (!email) return
     setOk(true)
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email, kind: 'playbook' })
+    }).catch(() => {})
     logEvent('playbook_downloaded', { section: 'resources' })
   }
   return (
