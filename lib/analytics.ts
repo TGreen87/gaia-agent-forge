@@ -30,4 +30,17 @@ export function logEvent(event: GaiaEvent, props?: Record<string, string | numbe
   }
 }
 
+// Compatibility helper used by new runtime pack pages
+// Mirrors the requested API: track(name, props?)
+export function track(name: string, props?: Record<string, string | number | boolean>) {
+  try {
+    if (typeof window !== 'undefined' && typeof window.plausible === 'function') {
+      // Keep behavior consistent with logEvent
+      window.plausible(name, props ? { props } : undefined)
+    }
+  } catch {
+    // no-op
+  }
+}
+
 

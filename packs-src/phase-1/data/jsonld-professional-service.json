@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "GAIA Agentic Systems and Automation",
+  "url": "https://greenaiautomation.ai/",
+  "serviceType": "AI systems, automation engineering, coaching",
+  "areaServed": "Global",
+  "provider": {
+    "@type": "Organization",
+    "name": "Green AI and Automation"
+  }
+}

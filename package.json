@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/make-packs.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
@@ -11,6 +13,7 @@
     "test": "npm run build && playwright test -c tests/playwright.next.config.ts"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "@hookform/resolvers": "^3.10.0",
     "@lhci/cli": "^0.13.0",
     "@playwright/test": "^1.54.2",
@@ -71,6 +74,7 @@
     "@types/node": "^22.16.5",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.4",
+    "archiver": "^6.0.2",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",

@@ -1,0 +1,21 @@
+:root {
+  --gaia-bg: #0b0f14;
+  --gaia-surface: #121823;
+  --gaia-text: #e6e9ed;
+  --gaia-muted: #9aa3ae;
+  --gaia-accent-1: #53d1c4;
+  --gaia-accent-2: #a189ff;
+  --gaia-success: #2ecc71;
+  --gaia-warning: #f1c40f;
+  --gaia-danger: #e74c3c;
+  --gaia-radius: 10px;
+  --gaia-shadow-soft: 0 1px 2px rgba(0,0,0,.12);
+  --gaia-shadow-med: 0 8px 30px rgba(0,0,0,.25);
+  --gaia-shadow-glow: 0 0 0 2px rgba(83, 209, 196, .35);
+}
+
+.gaia-card { background: var(--gaia-surface); color: var(--gaia-text); border: 1px solid rgba(255,255,255,.06); border-radius: var(--gaia-radius); box-shadow: var(--gaia-shadow-soft); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 8px; padding: .6rem 1rem; border: 1px solid rgba(255,255,255,.08); }
+.btn-primary { background: linear-gradient(90deg, var(--gaia-accent-1), var(--gaia-accent-2)); color: #0b0f14; font-weight: 600; }
+.text-muted-foreground { color: var(--gaia-muted); }
+.bg-background { background: var(--gaia-bg); }
